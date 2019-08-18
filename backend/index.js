@@ -1,10 +1,8 @@
-const express = require('express'),
-      cors = require('cors'),
-      app = express(),
-      PORT = 9000
+const 
+    express = require('./core/express'),
+    paths = require('./core/findPaths'),
+    db = require('./core/config/sequalize');
 
-app.use(cors());
+    console.log(db)
 
-app.listen(PORT, () => {
-    console.log(`App is listening on port ${PORT}!`)
-})
+express.initExpress();

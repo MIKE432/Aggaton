@@ -12,4 +12,8 @@ module.exports = {
         }
 
     },
+    paths: {
+        routes: 'backend/*/routes/*.js',
+        models: 'backend/*/models/*.js',
+    }
 }
