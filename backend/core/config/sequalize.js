@@ -1,10 +1,10 @@
 const
     sequelizeDb = require('../../defaults/defaults').sequelizeDb,
-    Sequelize = require('sequelize'),
+    sequelizeConstructor = require('sequelize'),
     path = require('path'),
-    paths = require('./../findPaths');
+    paths = require('../initConfig');
 
-const sequelize = new Sequelize(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);
+const sequelize = new sequelizeConstructor(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);
 const db = {};
 
 paths.models.map(modelPath => {
@@ -13,7 +13,7 @@ paths.models.map(modelPath => {
 })
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.sequelizeConstructor = sequelizeConstructor;
 
 module.exports = db;
 

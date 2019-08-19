@@ -7,7 +7,7 @@ const getPaths = (pattern) => {
     return glob.sync(pattern);
 }
 
-const findPaths = () => {
+const initConfig = () => {
     
     let config = {}
 
@@ -16,4 +16,4 @@ const findPaths = () => {
     return config;
 }
 
-module.exports = findPaths();
+module.exports = initConfig();

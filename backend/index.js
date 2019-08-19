@@ -1,8 +1,6 @@
 const 
-    express = require('./core/express'),
-    paths = require('./core/findPaths'),
+    server = require('./core/express'),
+    paths = require('./core/initConfig'),
     db = require('./core/config/sequalize');
 
-    console.log(db)
-
-express.initExpress();
+server.initExpress();
