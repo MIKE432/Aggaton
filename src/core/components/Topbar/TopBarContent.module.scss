@@ -1,0 +1,33 @@
+.WholeTopBarContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(53, 53, 53);
+    height: 20%;
+    .SingleContent {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(131, 131, 131, 0.527);
+        color:white;
+        width:100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover {
+            background-color:rgba(131, 131, 131, 0.7)
+        }
+
+        &:hover i {
+            color:rgba(200, 163, 163, 0.7)
+        }
+
+        i {
+            margin: 10px;
+            color:rgba(131, 131, 131, 0.7);
+        }
+        
+    }
+}
