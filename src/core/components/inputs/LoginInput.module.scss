@@ -1,0 +1,61 @@
+.Container {
+    position: relative;
+    border: 1px solid transparent;
+
+    label {
+        border: 1px solid transparent;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-size: 15px;
+        color: black;
+        pointer-events: none;
+        transition: .5s ease-in-out;
+        background-color: rgb(245, 245, 245);
+    }
+
+    .LabelOnFocus {
+        top: -5px;
+        font-size: 12px;
+    }
+
+    .onErrorInput {
+        border-color: red;
+    }
+
+    .onAcceptInput {
+        border-color: green;
+    }
+ 
+    input {
+        border: 2px solid rgb(221, 228, 179);
+        padding: 0 0 0 7px;
+        width: 250px;
+        text-align: left;
+        height: 30px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 5px;
+        margin:3px;
+        outline: none;
+    }
+        
+    .InputOnFocus {
+        border-color: rgb(255, 165, 0);
+    }
+}
+
+.onError {
+    animation-name: onErrorContainer;
+    animation-duration: .5s;
+
+    @keyframes onErrorContainer {
+        0% {left:0}
+        20%{left:5px}
+        40%{left:-5px}
+        60%{left:5px}
+        85%{left:-5px}
+        100%{left:0}
+    }
+}
+
+

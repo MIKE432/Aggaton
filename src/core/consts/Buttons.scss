@@ -1,0 +1,51 @@
+.button-accept {
+    width:100%;
+    background-color: rgb(245, 245, 245);
+    height: 30px;
+    outline: none;
+    margin: 5px 3px;
+    border-radius: 5px;
+    border: 1px solid green;
+    font-weight: 300;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+        color: yellow;
+        background-color: green;
+    }
+
+    &:active {
+        color: yellow;
+        background-color: green;
+        box-shadow: 1px 1px black;
+    }
+}
+
+.LoginButton {
+    width: 262px;
+    background-color: rgb(245, 245, 245);
+    height: 30px;
+    outline: none;
+    margin: 5px 3px;
+    border-radius: 5px;
+    border: 1px solid green;
+    font-weight: 300;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+        color: yellow;
+        background-color: green;
+    }
+
+    &:active {
+        color: yellow;
+        background-color: green;
+        box-shadow: 1px 1px black;
+    }
+}
