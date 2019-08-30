@@ -8,15 +8,11 @@
     top: 130px;
     background-color: var(--main-color);
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 10%;
-    align-items: center;
 }
 
 i {
-    position: relative;
     transition: .5s ease-in-out;
+    
 
     &:hover {
         cursor: pointer;
@@ -27,7 +23,7 @@ i {
 .TopBar {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 999;

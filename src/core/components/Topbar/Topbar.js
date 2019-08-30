@@ -45,8 +45,12 @@ class TopBar extends React.Component {
                     <TopBarContent ref = {this.TopBarRef} hideTopBar = {this.onClick} />
                     <div className={Styles.Informations} ref = {this.BottomNavBar}>
                         <i ref = {this.ArrowRef} className="fas fa-arrow-up fa-2x" onClick = {this.toggleShow} ></i>
-                        <SearchComponent />
+                        <div className = 'search-box'>
+                            
+                            <SearchComponent />
+                        </div>
                     </div>
+
                 </div>
         </> 
         )
