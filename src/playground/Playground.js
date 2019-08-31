@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const PlayGround = () => (
+export const Playground = () => (
     <div>
         <h1>This is h1</h1>
         <h2>This is h2</h2>
@@ -14,3 +14,4 @@ export const PlayGround = () => (
         <span>span</span>
     </div>
 )
+export default Playground;

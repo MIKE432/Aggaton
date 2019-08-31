@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TopBar from './core/components/Topbar/Topbar'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import TopBar from './core/components/Topbar/Topbar'
 import SignInPage from './user/pages/SignInPage'
-import { PlayGround } from './Playground'
-import  './core/consts/ScssToExport.scss'
+import Playground from './playground/Playground'
+import BottomBar from './core/components/BottomBar/BottomBar'
+
+import './App.css';
+import './core/consts/ScssToExport.scss'
 
 function App() {
-  return (
-
-      <BrowserRouter>
+    return (
+        <>
+        <BrowserRouter >
         <TopBar />
-        <Switch>
-
-          <Route exact path = '/signin' component = {SignInPage}/>
-          <Route exact path = '/playground' component = {PlayGround}/>
-
+        <Switch >
+            <Route exact path = '/signin' component = { SignInPage } /> 
+            <Route exact path = '/playground' component = { Playground } />
         </Switch>
-      </BrowserRouter>
-  );
+        </BrowserRouter>
+        <BottomBar />
+        </>
+    );
 }
 
 export default App;

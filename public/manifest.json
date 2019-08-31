@@ -1,7 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Numizmatyczna Encyklopedia Świata",
+  "short_name": "ApusArt Numizmatyka",
+  "author": "Apusart",
+  "description": "",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "display1": "standalone",
   "icons": [
+    {
+      "src": "favicon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
@@ -9,7 +20,4 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
 }
