@@ -15,3 +15,14 @@ exports.getUser = async (id) => {
     const user = await db.user.findOne({ where: { id } });
     return mapUserToResponseModel(user);
 }
+
+exports.saveUser = async (user) => {
+    return db.user.create({
+        first_name: user.firstName,
+        last_name: user.lastName,
+        salt: 'dummy',
+        email: user.email,
+        password: user.password,
+        is_expert: false
+    });
+}

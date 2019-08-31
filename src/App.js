@@ -10,7 +10,6 @@ import  './core/consts/ScssToExport.scss'
 function App() {
   return (
 
-    <div className = "Background-box">
       <BrowserRouter>
         <TopBar />
         <Switch>
@@ -20,7 +19,6 @@ function App() {
 
         </Switch>
       </BrowserRouter>
-      </div>
   );
 }
 

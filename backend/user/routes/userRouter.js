@@ -1,3 +1,4 @@
 module.exports = (app) => {
-    app.route('/').all().post()
+    app.route('/signin').all()
+        .post()
 }

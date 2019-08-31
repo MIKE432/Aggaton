@@ -19,11 +19,12 @@ class SignInForm extends React.Component {
                     }}
                     render = {
                         (formstate) => (
-                            <Form className = 'SighInForm'>
-                                <LogInInput name = 'username' label = 'User name' type = 'text'/>
+                            <Form className = 'sigh-in-form'>
+                                <LogInInput name = 'name' label = 'Imię' type = 'text'/>
+                                <LogInInput name = 'lastName' label = 'Nazwisko' type = 'text'/>
                                 <LogInInput name = 'email' label = 'E-mail' type = 'email'/>
-                                <LogInInput name = 'password' label = 'Password' type = 'password'/>
-                                <button className = 'LoginButton' type="submit">Submit</button>
+                                <LogInInput name = 'password' label = 'Hasło' type = 'password'/>
+                                <button className = 'login-button' type="submit">Submit</button>
                             </Form>
                         )
                     }

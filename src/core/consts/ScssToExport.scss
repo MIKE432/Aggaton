@@ -3,7 +3,55 @@
 @import 'Buttons';
 @import 'const';
 @import 'custom';
+@import 'Media';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,400&display=swap');
 
 * {
     box-sizing: border-box;
+}
+
+h1 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+h4 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+h5 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+h6 {
+    font-weight: 400;
+    font-style: normal;
+}
+
+i {
+    font-weight: 100;
+    font-style: italic;
+}
+
+span {
+    font-weight: 400;
+    font-style: normal;
+}
+
+p {
+    font-weight: 100;
+    font-style: normal;
 }
