@@ -1,0 +1,19 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+
+*, ::after, ::before {
+    box-sizing: border-box;
+  }
+  
+  *:focus {
+      outline-color: $color-ctrl-border-focus;
+  }
+  
+  input:focus {
+      outline: none;
+  }
+  
+  button {
+      user-select: none;
+  }
+  
