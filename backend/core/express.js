@@ -10,10 +10,24 @@ const express = require('express'),
       
 const middleWares = (app) => {
     app.use(cors());
+    app.use(bodyParser.json('type'));
     app.use(express.static('public'));
     app.use(session({ secret: 'swimming' }));
     app.use(bodyParser.urlencoded({ extended: true }));
     userPassportConfiguration(app, passport);
+}
+
+
+const setHeaders = (app) => {
+
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+          "Access-Control-Allow-Headers",
+          "Content-Type"
+        );
+        next();
+    });
 }
 
 const initRouters = (app) => {
@@ -24,12 +38,14 @@ const initRouters = (app) => {
 }
 
 exports.initExpress = () => {
-    const app = express();
-
+    let app = express();
+    
+    setHeaders(app);
     middleWares(app);    
     initRouters(app);
 
     app.listen(PORT, () => {
+        
         console.log(`App is listening on port ${PORT}!`)
     })
 }

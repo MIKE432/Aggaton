@@ -79,6 +79,3 @@ CREATE TABLE public.rim (
     id SERIAL PRIMARY KEY NOT NULL,
     name TEXT NOT NULL
 );
-
-ALTER TABLE ONLY public.artifact ADD CONSTRAINT created_by_id_fkey FOREIGN KEY (created_by) REFERENCES public.userd(id);
-ALTER TABLE ONLY public.artifact ADD CONSTRAINT modified_by_id_fkey FOREIGN KEY (modified_by) REFERENCES public.userd(id);

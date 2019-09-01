@@ -1,7 +1,6 @@
 const
     db = require('../../core/config/sequalize');
 
-
 const mapUserToResponseModel = (user) => {
     return {
         firstName: user.first_name,
@@ -17,6 +16,7 @@ exports.getUser = async (id) => {
 }
 
 exports.saveUser = async (user) => {
+    console.log(db.user);
     return db.user.create({
         first_name: user.firstName,
         last_name: user.lastName,

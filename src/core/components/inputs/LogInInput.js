@@ -34,11 +34,7 @@ class LoginInput extends React.Component {
             this.refInput.current.classList.add(Styles.onAcceptInput);
         }
     }
-
-    componentDidMount() {
-        console.log(this)
-    }
-
+    
     render() {
         return(
             <div ref = {this.refContainer} className = {Styles.Container}>

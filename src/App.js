@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TopBar from './core/components/Topbar/Topbar'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'

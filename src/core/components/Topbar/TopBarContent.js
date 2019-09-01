@@ -7,7 +7,6 @@ class TopBarContent extends React.Component {
         super(props);
 
         this.TopBarContentRef = React.createRef();
-        console.log(this.props);
     }
 
     render() {
