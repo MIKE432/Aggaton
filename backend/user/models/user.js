@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-
-    return sequelize.define('userd', {
+    return sequelize.define('user', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -14,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         is_expert: { type: DataTypes.BOOLEAN, allowNull: false },
     }, {
         tableName: 'userd',
-        createAt: false,
+        createdAt: false,
         updatedAt: false
     });
 

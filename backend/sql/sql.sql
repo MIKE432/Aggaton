@@ -3,7 +3,7 @@ CREATE TABLE public.userd (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     salt TEXT NOT NULL,
-    email TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
     is_expert BOOLEAN NOT NULL
 );
@@ -79,6 +79,3 @@ CREATE TABLE public.rim (
     id SERIAL PRIMARY KEY NOT NULL,
     name TEXT NOT NULL
 );
-
-ALTER TABLE ONLY public.artifact ADD CONSTRAINT created_by_id_fkey FOREIGN KEY (created_by) REFERENCES public.userd(id);
-ALTER TABLE ONLY public.artifact ADD CONSTRAINT modified_by_id_fkey FOREIGN KEY (modified_by) REFERENCES public.userd(id);

@@ -9,7 +9,7 @@ const SearchComponent = (props) => (
         (formstate) => (
             <Form className = 'search-wrapper border-radius-l' >
                 <Field className = 'border-radius-m search-input' name = 'text'></Field>
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
             </Form>
         )
         

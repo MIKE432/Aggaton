@@ -3,7 +3,6 @@ const
     paths = require('../defaults/defaults').paths;
 
 const getPaths = (pattern) => {
-    console.log(pattern)
     return glob.sync(pattern);
 }
 

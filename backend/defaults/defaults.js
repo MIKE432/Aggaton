@@ -2,8 +2,8 @@
 
 module.exports = {
     sequelizeDb: {
-        databaseName: 'aggatondb',
-        username: 'michal',
+        databaseName: 'aggaton',
+        username: 'mike',
         password: '1211',
         options: {
             host: 'localhost',
