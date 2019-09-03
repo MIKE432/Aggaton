@@ -3,6 +3,7 @@
 
 *, ::after, ::before {
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;   
   }
   
   *:focus {
