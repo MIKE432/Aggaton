@@ -1,0 +1,25 @@
+{
+    "proposals": [
+        {
+            "lang": "pl",
+            "author": "ApusArt • Oprogramowanie & Dizajn • Raszczukowie",
+            "name": "Numizmatyczny Atlas Świata",
+            "shortName": "Apusart Nas",
+            "description": "Numizmatyczny Atlas Świata"
+        },
+        {
+            "lang": "en",
+            "author": "ApusArt • Software Development & Design • Raszczukowie",
+            "name": "Numizmatic World Atlas",
+            "shortName": "Apusart Nas",
+            "description": "Numizmatic World Atlas"
+        },
+        {
+            "lang": "pl",
+            "author": "Apusart",
+            "name": "Numizmatyczna Encyklopedia Świata",
+            "shortName": "Apusart NES",
+            "description": "Numizmatyczna Encyklopedia Świata"
+        },
+    ]
+}

@@ -1,0 +1,38 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './BottomBar.module.scss';
+
+const BottomBar = () =>
+    (
+        <div className={styles.bar}>
+            <div className={styles.footer}>
+                    <div>
+                        Kontakt
+                    </div>
+                    <div>
+                        Sklepy Numizmatyczne<br />
+                        <a target='blank' href='https://numimarket.pl/'>dom aukcyjny - numimarket.pl</a>
+                    </div>
+                    <div>
+                        Organizacje<br />
+                        <a target='blank' href='https://www.skarbnicanarodowa.pl/polska-numizmatyka'>Polska Numizmatyka</a><br />
+                        <a target='blank' href='https://wcn.pl'>Warszawskie Centrum Numizmatyczne</a>
+
+                    </div>
+                <div class={styles.container}>
+                </div>
+            </div>
+            <div className={styles.hr} />
+            <div className={styles.summary}>
+                <div class={styles.container}>
+                    <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link to='/terms'>Regulaminu</Link></div>
+                    <div className={styles.sep} />
+                    <div><Link to='/policy'>Polityka prywatności</Link></div>
+                </div>
+                <div>Written by <a>Apusart</a> 2019</div>
+            </div>
+        </div>
+    )
+
+export default BottomBar;

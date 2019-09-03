@@ -1,0 +1,59 @@
+@import '../../core/styles/colors.scss';
+@import '../../core/styles/fonts.scss';
+
+@mixin padding-footer {
+    padding: 8px 10px;
+}
+
+
+.bar {
+
+    width: 100%;
+
+    @include font-footer;
+
+    a {
+
+        color: $color-footer-link;
+    }
+
+    .hr {
+        
+        min-width: 100%;
+        min-height: 1px;
+        background-color: transparent;
+    }
+    .sep{
+        
+        min-width: 6px;
+        max-width: 6px;
+        min-height: 6px;
+        max-height: 6px;
+        border-radius: 50%;
+        background-color: $color-footer-text;
+        margin: 0px 10px;
+    }
+
+    .footer {
+        
+        background-color: $color-footer; 
+        color: $color-footer-text;
+    
+        display: flex;
+        justify-content: space-between;
+        @include padding-footer;
+    }
+    .summary {
+
+        background-color: $color-footer; 
+        color: $color-footer-text;
+    
+        display: flex;
+        justify-content: space-between;
+        @include padding-footer;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+    }
+}

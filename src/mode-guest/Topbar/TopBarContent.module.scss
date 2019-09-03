@@ -1,0 +1,48 @@
+@import '../../../core//consts/Media.scss';
+
+.WholeTopBarContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(53, 53, 53);
+    height: 50px;
+    position: sticky;
+
+    transition: .5s ease-in-out ;
+    
+    .SingleContent {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        background-color: rgba(131, 131, 131, 0.527);
+        color:white;
+        width:100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        @include for-phone-only {    
+            span {
+                display: none
+            }
+         }
+        
+        &:hover {
+            background: rgb(179,179,179);
+            background: radial-gradient(circle, rgba(133,133,133,0.7) 1%, rgba(130,130,130,0.53) 43%);
+            cursor: pointer;
+        }
+
+        &:hover i {
+            color:rgba(255, 253, 163, 0.664)
+        }
+
+        i {
+            top: 0;
+            margin: 10px;
+            color:rgba(131, 131, 131, 0.7);
+        }
+        
+    }
+}
