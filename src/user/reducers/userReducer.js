@@ -1,9 +1,9 @@
-import { SAVE_USER } from '../actions/actions'
+import { LOGIN_USER_SUCCESS } from '../actions/actions'
 
 const userReducer = (state = { userType: 'guest' }, action) => {
     switch(action.type) {
-        case SAVE_USER: {
-            return { ...state, ...action.payload }
+        case LOGIN_USER_SUCCESS: {
+            return { ...state, ...action.payload,  }
         }
         default: {
             return state

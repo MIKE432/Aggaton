@@ -9,7 +9,6 @@ const db = {};
 
 paths.models.map(modelPath => {
     const model = sequelize.import(path.resolve(modelPath));
-    console.log(model);
     db[model.name] = model;
 })
 

@@ -1,28 +1,40 @@
 const
-    db = require('../../core/config/sequalize');
+    db = require('../../core/config/sequalize'),
+    Crypto = require('crypto-js'),
+    crypto = require('crypto');
+    
 
-const mapUserToResponseModel = (user) => {
+exports.mapUserToResponseModel = (user) => {
     return {
         firstName: user.first_name,
         lastName: user.last_name,
         email: user.email,
-        isExpert: user.isExpert
+        isExpert: user.is_expert
     }
 };
 
-exports.getUser = async (id) => {
-    const user = await db.user.findOne({ where: { id } });
-    return mapUserToResponseModel(user);
+exports.getUser = async (email, raw) => {
+    const user = await db.user.findOne({ where: { email } });
+    if(!raw) {
+        return mapUserToResponseModel(user);
+    }
+
+    return user;
 }
 
 exports.saveUser = async (user) => {
-    console.log(db.user);
-    return db.user.create({
+    const salt = crypto.randomBytes(16).toString('hex');
+    const passwordAndSalt = user.password + salt;
+    const password = Crypto.SHA256(passwordAndSalt).toString();
+
+    const createdUser =  db.user.create({
         first_name: user.firstName,
         last_name: user.lastName,
-        salt: 'dummy',
+        salt: salt,
         email: user.email,
-        password: user.password,
+        password: password,
         is_expert: false
     });
+
+    return mapUserToResponseModel(createdUser)
 }

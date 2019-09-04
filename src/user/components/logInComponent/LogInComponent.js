@@ -3,18 +3,18 @@ import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import Crypto from 'crypto-js';
 import LogInInput from '../../../core/components/inputs/LogInInput'
-import { saveUser } from '../../actions/actions'
+import { loginUser } from '../../actions/actions'
 
 const mapDispatchToProps = dispatch => ({
-    saveUser: user => dispatch(saveUser(user))
+    loginUser: user => dispatch(loginUser(user))
 })
 
-class SignInForm extends React.Component {
+class LogInForm extends React.Component {
 
     onSubmit = (formikValues, {resetForm}) => {
         const values = { ...formikValues }
         values.password = Crypto.SHA256(values.password).toString();
-        this.props.saveUser(values);
+        this.props.loginUser(values);
         const afterSubmitValues = {...formikValues};
         afterSubmitValues.password = '';
         resetForm(afterSubmitValues);
@@ -27,16 +27,12 @@ class SignInForm extends React.Component {
                 <Formik
                     onSubmit = {this.onSubmit}
                     initialValues = {{
-                        firstName: '',
-                        lastName: '',
                         email: '',
                         password: ''
                     }}
                     render = {
                         (formState) => (
                             <Form className = 'sign-in-form'>
-                                <LogInInput name = 'firstName' label = 'Imię' type = 'text'/>
-                                <LogInInput name = 'lastName' label = 'Nazwisko' type = 'text'/>
                                 <LogInInput name = 'email' label = 'E-mail' type = 'email'/>
                                 <LogInInput name = 'password' label = 'Hasło' type = 'password'/>
                                 <button className = 'login-button' type="submit">Zarejestruj się!</button>
@@ -51,4 +47,4 @@ class SignInForm extends React.Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(SignInForm)
+export default connect(null, mapDispatchToProps)(LogInForm)
