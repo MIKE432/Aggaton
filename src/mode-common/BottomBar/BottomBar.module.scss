@@ -42,7 +42,14 @@
         display: flex;
         justify-content: space-between;
         @include padding-footer;
+
+        .groupTitle {
+
+            color: $color-footer-text;
+            @include font-footer-group;
+        }
     }
+
     .summary {
 
         background-color: $color-footer; 
@@ -52,7 +59,9 @@
         justify-content: space-between;
         @include padding-footer;
     }
+
     .container {
+
         display: flex;
         align-items: center;
     }

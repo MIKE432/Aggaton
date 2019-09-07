@@ -2,5 +2,14 @@ $color-footer : #1e1e1e;
 $color-footer-text : #c9d4d4;
 $color-footer-link : #d7ba7d;
 
-$color-ctrl-border-basic: #d0d0d0;
-$color-ctrl-border-focus: #7DADD9;
+$color-border: #d7ba7d;
+$color-focus: #7a5300;
+$color-invalid: #d7ba7d;
+
+$color-ctrl-border-basic: $color-border;
+$color-ctrl-border-focus: $color-focus;
+$color-ctrl-border-invalid: $color-invalid;
+
+$color-ctrl-text: #000000;
+$color-label-text: $color-border;
+$color-label-focus-text: $color-focus;

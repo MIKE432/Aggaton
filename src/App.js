@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import TopBar from './core/components/Topbar/Topbar'
 import SignInPage from './user/pages/SignInPage'
 import Playground from './playground/Playground'
 import LogInPage from './user/pages/LogInPage'

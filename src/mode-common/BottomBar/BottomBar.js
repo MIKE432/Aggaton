@@ -8,14 +8,14 @@ const BottomBar = () =>
         <div className={styles.bar}>
             <div className={styles.footer}>
                     <div>
-                        Kontakt
+                        <div className={styles.groupTitle}>Kontakt</div>
                     </div>
                     <div>
-                        Sklepy Numizmatyczne<br />
+                        <div className={styles.groupTitle}>Sklepy</div>
                         <a target='blank' href='https://numimarket.pl/'>dom aukcyjny - numimarket.pl</a>
                     </div>
                     <div>
-                        Organizacje<br />
+                        <div className={styles.groupTitle}>Organizacje</div>
                         <a target='blank' href='https://www.skarbnicanarodowa.pl/polska-numizmatyka'>Polska Numizmatyka</a><br />
                         <a target='blank' href='https://wcn.pl'>Warszawskie Centrum Numizmatyczne</a>
 
@@ -29,6 +29,8 @@ const BottomBar = () =>
                     <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link to='/terms'>Regulaminu</Link></div>
                     <div className={styles.sep} />
                     <div><Link to='/policy'>Polityka prywatności</Link></div>
+                    <div className={styles.sep} />
+                    <div><Link to='/playground'>Plac zabaw</Link></div>
                 </div>
                 <div>Written by <a>Apusart</a> 2019</div>
             </div>
