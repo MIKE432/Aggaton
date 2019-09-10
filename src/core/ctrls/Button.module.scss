@@ -1,5 +1,4 @@
-@import './../../styles/media.scss';
-@import './../../styles/fonts.scss';
+@import './_ctrls.scss';
 
 @mixin set-button-style( $bk-color, $text-color ) {
     @include font-edit;

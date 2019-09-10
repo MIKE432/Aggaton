@@ -23,7 +23,6 @@ class LogInForm extends React.Component {
     render() {
         return (
             <div className = 'SignInForm'>
-                <h1>Rejestracja</h1>
                 <Formik
                     onSubmit = {this.onSubmit}
                     initialValues = {{

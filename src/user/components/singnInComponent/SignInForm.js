@@ -22,30 +22,27 @@ class SignInForm extends React.Component {
 
     render() {
         return (
-            <div className = 'SignInForm'>
-                <h1>Rejestracja</h1>
-                <Formik
-                    onSubmit = {this.onSubmit}
-                    initialValues = {{
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        password: ''
-                    }}
-                    render = {
-                        (formState) => (
-                            <Form className = 'sign-in-form'>
-                                <LogInInput name = 'firstName' label = 'Imię' type = 'text'/>
-                                <LogInInput name = 'lastName' label = 'Nazwisko' type = 'text'/>
-                                <LogInInput name = 'email' label = 'E-mail' type = 'email'/>
-                                <LogInInput name = 'password' label = 'Hasło' type = 'password'/>
-                                <button className = 'login-button' type="submit">Zarejestruj się!</button>
-                            </Form>
-                        )
-                    }
-                
-                />
-            </div>
+            <Formik
+                onSubmit = {this.onSubmit}
+                initialValues = {{
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    password: ''
+                }}
+                render = {
+                    (formState) => (
+                        <Form className='sign-in-form'>
+                            <LogInInput name='firstName' label='Imię' type='text'/>
+                            <LogInInput name='lastName' label='Nazwisko' type='text'/>
+                            <LogInInput name='email' label='E-mail' type='email'/>
+                            <LogInInput name='password' label='Hasło' type='password'/>
+                            <button className='login-button' type="submit">Zarejestruj się!</button>
+                        </Form>
+                    )
+                }
+            
+            />
         )
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import Text from '../core/ctrls/text/Text';
-import ComboBox from '../core/ctrls/combobox/ComboBox';
-import Combo from '../core/ctrls/combo/Combo';
-import Button from '../core/ctrls/button/Button';
-import ErrorBox from '../core/ctrls/errorbox/ErrorBox';
+import Text from '../core/ctrls/Text';
+import ComboBox from '../core/ctrls/ComboBox';
+import Combo from '../core/ctrls/Combo';
+import Button from '../core/ctrls/Button';
+import ErrorBox from '../core/ctrls/ErrorBox';
 
 export const Playground = () => (
     <>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BannerSection from './BannerSection/BannerSection';
+import BannerSection from './BannerSection';
 
 const LandingPage = () =>
     <BannerSection />

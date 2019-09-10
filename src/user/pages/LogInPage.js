@@ -9,9 +9,8 @@ const LogInPage = () => {
     return (
         <BannerHolder>
             <Logo to='/' size='128' />
-            <div className = 'sign-in-page'>
-                <LogInForm />
-            </div>
+            <h1>Logowanie</h1>
+            <LogInForm />
             <div>
                 <ul className='header'>
                     <li>Nie możesz się zalogować? <Link to='/reset'>Odzyskaj dostęp do konta</Link>!</li>

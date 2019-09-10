@@ -1,0 +1,106 @@
+@import './../styles/media.scss';
+@import './../styles/fonts.scss';
+
+@mixin ctrl-component { 
+
+    display: inline-block;
+	position: relative; 
+
+    width: 100%;
+
+    border-radius: 5px;
+    border: 1px solid $color-ctrl-border-basic; 
+
+    background-color: white;
+    transition: border-color 0.33s;
+}
+
+@mixin ctrl-select { 
+	.value {
+		@include font-edit;
+		color: $color-ctrl-text; 
+
+		outline: none;
+		border: none; 
+		padding: 0px;
+		margin: 0; 
+		width: 100%;
+		background-color: transparent;
+	}
+}
+
+@mixin ctrl-input { 
+	.value {
+		@include font-edit;
+		color: $color-ctrl-text; 
+
+		outline: none;
+		border: none; 
+		padding: 0px;
+		margin: 0; 
+		width: 100%;
+		background-color: transparent;
+	}
+}
+
+@mixin ctrl-label {
+
+	.label { 
+		@include font-label;
+		color: $color-label-text; 
+
+		position: absolute;
+		background-color: transparent;
+		transition: all 0.33s ease-in-out;
+		pointer-events: none;
+	}
+
+	.labelFocus {
+		@include font-label-focus;
+		color: $color-label-focus-text;
+		background-color: inherit;
+	}
+}
+
+@mixin nca-ctrl( $value-font-size ) {
+
+	$focus-label-font-size: ($value-font-size*3)/4; 
+	$margin-top: $focus-label-font-size;
+
+	// border-top-width: 1px;
+
+	$padding-top: ($focus-label-font-size/2);
+	$padding-bottom: $value-font-size/6;
+	$label-top: $padding-top + $padding-bottom;
+
+	margin-top: $margin-top;
+	padding-top: $padding-top;
+	padding-bottom: $padding-bottom;
+	padding-left: 6px;
+	padding-right: 6px;
+
+	input {
+
+		font-size: $value-font-size;
+	}
+
+	label { 
+		font-size: $value-font-size;
+		top: $padding-top;
+		left: 6px;
+	}
+
+	.labelFocus {
+
+		font-size: $focus-label-font-size;
+		top: -$label-top;
+	}
+}    
+
+@mixin nca-ctrl-for-tiny-desktop ( $value-font-size: 28px ) {
+
+	@include for-tiny-desktop {
+
+		@include nca-ctrl( $value-font-size ); 
+	}
+}
