@@ -1,0 +1,46 @@
+@import '../../../core/styles/colors.scss';
+@import '../../../core/styles/fonts.scss';
+
+@mixin logo( $url, $size ) {
+
+    display: inline-block;
+    background-image: $url;
+    
+    min-width: $size;
+    width: $size;
+
+    min-height: $size;
+    height: $size;
+}
+
+.logo {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    .logo512 {
+
+        @include logo( url('../../../assets/logo-512.webp'), 512px );
+    }
+
+    .logo256 {
+
+        @include logo( url('../../../assets/logo-512.webp'), 256px );
+    }
+
+    .logo128 {
+
+        @include logo( url('../../../assets/logo-128.webp'), 128px );
+    }
+
+
+    .title {
+        @include font-title;
+
+        span {
+
+            font-style: italic;
+            font-weight: 100;
+        }
+    }
+}

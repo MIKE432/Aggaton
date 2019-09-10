@@ -1,15 +1,63 @@
-$color-footer : #1e1e1e;
-$color-footer-text : #c9d4d4;
-$color-footer-link : #d7ba7d;
+@function get-color-3d-dkshadow( $color ) {
+    @return darken( $color, 40% );
+}
+@function get-color-3d-shadow( $color ) {
+    @return darken( $color, 20% );
+}
+@function get-color-3d-hoover( $color ) {
+    @return lighten( $color, 10% );
+}
+@function get-color-3d-light( $color ) {
+    @return lighten( $color, 20% );
+}
+@function get-color-3d-hilight( $color ) {
+    @return lighten( $color, 40% );
+}
+@function get-color-hoover( $color ) {
+    @return lighten( $color, 40% );
+}
 
-$color-border: #d7ba7d;
-$color-focus: #7a5300;
-$color-invalid: #d7ba7d;
+// kolory podstawowe z nich powinny być wyprowadzone wszystkie inne
+$color-desktop: #1e1e1e;
+$color-desktop-text: #c9d4d4;
+$color-desktop-link: #d7ba7d;
+
+$color-app-workspace: white;
+$color-window: white;
+$color-window-text: black;
+$color-backgournd: white;
+$color-dialog: white;
+
+$color-hilight: blue;
+$color-hilight-text: white;
+$color-hoover: get-color-hoover($color-hilight);
+
+$color-warning: crimson;
+$color-warning-text: white;
+
+$color-btn-text: #7a5300;
+$color-btn-face: #d7ba7d;
+$color-btn-shadow: get-color-3d-shadow( $color-btn-face );
+$color-btn-dkshadow: get-color-3d-dkshadow( $color-btn-face );
+$color-btn-light: get-color-3d-light( $color-btn-face );
+$color-btn-hilight: get-color-3d-hilight( $color-btn-face );
+$color-btn-hoover: get-color-3d-hoover( $color-btn-face );
+
+// kolor dla stopki na podstawie standardowych kolorów 
+$color-footer : $color-desktop;
+$color-footer-text : $color-desktop-text;
+$color-footer-link : $color-desktop-link;
+
+$color-border: $color-btn-face;
+$color-focus: $color-btn-dkshadow;
+$color-invalid: $color-warning;
 
 $color-ctrl-border-basic: $color-border;
 $color-ctrl-border-focus: $color-focus;
 $color-ctrl-border-invalid: $color-invalid;
 
-$color-ctrl-text: #000000;
+$color-ctrl-text: black;
+$color-ctrl-face: white;
 $color-label-text: $color-border;
 $color-label-focus-text: $color-focus;
+

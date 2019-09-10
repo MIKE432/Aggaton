@@ -1,39 +1,80 @@
 @import './../../styles/media.scss';
 @import './../../styles/fonts.scss';
 
-.button {
+@mixin set-button-style( $bk-color, $text-color ) {
     @include font-edit;
 
-    background-color: #d7ba7d;
-    border: 1px solid #7a5300;
+    color: $text-color;
+    background-color: $bk-color;
+    border: 1px solid get-color-3d-shadow( $bk-color );
     border-radius: 5px;
     padding: 6px 6px;
 
     margin-top: 10px;
     margin-bottom: 10px;
 
+    transition: all .25s ease-in-out;
+
     &:hover {
 
-        background-color: lighten( #d7ba7d, 10% );
-        box-shadow: 0px 8px 10px -5px #7a5300;
-        margin-top: 8px;
-        margin-bottom: 12px;
+        background-color: get-color-3d-light( $bk-color );
+        box-shadow: 0px 8px 10px -5px get-color-3d-shadow( $bk-color );
         }
     &:focus {
 
-        background-color: lighten( #d7ba7d, 10% );
-        border: 1px solid darken(#7a5300,10%);
+        background-color: get-color-3d-light( $bk-color );
+        border: 1px solid get-color-3d-dkshadow( $bk-color );
         outline: none;
     }
     &:active {
     
-        background-color: #d7ba7d;
+        background-color: $bk-color;;
         box-shadow: none;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 11px;
+        margin-bottom: 9px;
     }
 }
 
+.button {
+    @include set-button-style( $color-btn-face, $color-btn-text );
+}
 
+.primary {
+    @include set-button-style( $color-btn-face, $color-btn-text );
+}
 
+.secondary {
+    @include set-button-style( $color-btn-face, $color-btn-text );
+    background-color: inherit;
+    color: inherit;
+}
 
+.warning {
+    @include set-button-style( $color-warning, $color-warning-text );
+}
+
+.form {
+    @include set-button-style( #d7ba7d, black );
+    background-color: inherit;
+}
+
+.disabled {
+    @include set-button-style( #ddd, white );
+}
+
+.lp {
+    @include set-button-style( $color-btn-face, $color-btn-text );
+    @include font-title;
+    text-transform: uppercase;
+
+    border-radius: 10px;
+}
+
+.lps {
+    @include set-button-style( $color-btn-face, $color-btn-text );
+    @include font-title;
+    text-transform: uppercase;
+    background-color: inherit;
+
+    border-radius: 10px;
+}

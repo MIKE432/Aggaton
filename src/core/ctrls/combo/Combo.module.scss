@@ -1,0 +1,44 @@
+@import './../../styles/media.scss';
+@import './../../styles/fonts.scss';
+
+.component {
+    @include ctrl-component;
+    @include ctrl-input;
+    @include ctrl-label;
+
+
+    .label {
+
+        width: auto;
+        overflow: hidden;
+    }
+    //display:inline-flex;
+    .button {
+        float: right;
+        margin-top: 6px;
+        margin-bottom: 2px;
+        width: 13px;
+        height: 13px;
+        border-left: 6px solid transparent;
+        border-top: 6px solid $color-ctrl-border-focus;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+
+    }
+
+    @include nca-ctrl( $font-edit-size );
+    @include nca-ctrl-for-tiny-desktop;
+}
+
+.editFocus {
+    border-color: $color-ctrl-border-focus;
+}
+
+.required {
+	
+}
+
+.required::after {
+	color: red;
+	content: " *";
+}

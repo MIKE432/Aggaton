@@ -18,7 +18,7 @@ class ErrorBox extends Component {
 
     render() {
         return (
-            <div ref={this.refComponent} className={styles.errorBox}><div>{this.props.children}</div>{this.props.label}</div>
+            <div ref={this.refComponent} className={styles.errorBox} style={this.props.style}><div>{this.props.children}</div>{this.props.label}</div>
         );
     }    
     

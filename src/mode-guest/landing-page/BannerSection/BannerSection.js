@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import BannerHolder from '../BannerHolder/BannerHolder';
+import Logo from '../Logo/Logo';
+import Button from '../../../core/ctrls/button/Button';
 import styles from './BannerSection.module.scss';
 
 const BannerSection = () => 
-    <div className={styles.banner}>
-        <div className={styles.logo}></div>
+    <BannerHolder>
+        <Logo size='512'/>
         <div>
-            <Link to='/signin'><span className={styles.button}>Zarejstruj się</span></Link>
-            <Link to='/login'><span className={styles.button}>Zaloguj się</span></Link>
+            <Button to='/signin' mode='lp' style={{margin:'20px', width:'350px'}}>Zarejstruj się</Button>
+            <Button to='/login' mode='lps' style={{margin:'20px', width:'350px'}}>Zaloguj się</Button>
         </div>
-    </div>
+    </BannerHolder>
 
 export default BannerSection;

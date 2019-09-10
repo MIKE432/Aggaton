@@ -12,6 +12,13 @@ $font-label-size-t: $font-edit-size-t;
 $font-label-focus-size-t: 14px;
 
 
+@mixin font-title {
+
+	font-family: 'Roboto', sans-serif;	
+	font-size: 32px;
+	font-weight: 300;
+}
+
 @mixin font-footer {
 
 	font-family: 'Roboto', sans-serif;	

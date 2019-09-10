@@ -25,7 +25,7 @@ class ComboBox extends Component {
 
     render() {
         return (
-        <div ref={this.refComponent} className={styles.component}>
+        <div ref={this.refComponent} className={styles.component} style={this.props.style}>
             <label ref={this.refLabel} className={styles.label} htmlFor={this.props.name}>{this.props.label}</label>
             <select ref={this.refSelect} className={styles.value} type={this.props.type} name={this.props.name} onFocus={this.handleFocus} onBlur={this.handleBlur} >
                 {this.props.children}
