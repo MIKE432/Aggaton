@@ -15,5 +15,12 @@ module.exports = {
     paths: {
         routes: 'backend/*/routes/*.js',
         models: 'backend/*/models/*.js',
+    },
+    redis: {
+        host: 'localhost', 
+        port: 6379
+    },
+    session: {
+        secret: '128591cbb12a3b061d58b1b0240d0c06'
     }
 }

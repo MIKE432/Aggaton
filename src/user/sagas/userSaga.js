@@ -3,11 +3,11 @@ import { apiCall } from '../../core/rest/restClient'
 import { LOGIN_USER, LOGIN_USER_SUCCESS, SAVE_USER, loginUserSuccess } from '../actions/actions'
 
 export function* saveUserSaga(action) {
-    yield call(apiCall, '/signin', 'POST', {}, action.payload)
+    yield call(apiCall, '/api/signin', 'POST', {}, action.payload)
 }
 
 export function* loginUser(action) {
-    const user = yield call(apiCall, '/login', 'POST', {}, action.payload);
+    const user = yield call(apiCall, '/api/login', 'POST', {}, action.payload);
     yield put(loginUserSuccess(user.data))
 }
 
