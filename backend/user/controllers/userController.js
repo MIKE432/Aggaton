@@ -16,7 +16,6 @@ exports.login = (req, res, next) => {
         if(err) {
             next(err)
         } else {
-
             delete user.password;
             delete user.salt;
             req.login(user, (err) => {

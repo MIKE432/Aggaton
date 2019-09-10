@@ -2,13 +2,17 @@ const express = require('express'),
       cors = require('cors'),
       path = require('path'),
       passport = require('passport'),
+      redis = require('redis'),
       session = require('express-session'),
+      redisStore = require('connect-redis')(session),
+      client = redis.createClient(),
       bodyParser = require('body-parser'),
       morgan = require('morgan'),
       cookieParser = require('cookie-parser'),
-      PORT = 9000,
+      PORT = 5000,
       paths = require('./initConfig'),
-      userPassportConfiguration = require('../user/config/userPassportConfiguration');
+      userPassportConfiguration = require('../user/config/userPassportConfiguration'),
+      config = require('../defaults/defaults');
       
 const middleWares = (app) => {
     app.use(cors());
@@ -17,9 +21,18 @@ const middleWares = (app) => {
     app.use(morgan('dev'))
     app.use(cookieParser())
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(session({  name: 'xpressBlu.sess', key:'user_sid', secret: 'swimming', saveUninitialized: true, resave: false, cookie: {
-        expires: 600000
-    } }));
+    app.use(session({
+        secret: config.session.secret,
+        name: 'aggatonCookie',
+        store: new redisStore({ 
+            port: config.redis.port, 
+            host: config.redis.port,
+            client: client 
+        }),
+        saveUninitialized: true,
+        resave: false,
+        cookie: { maxAge: 1800000 }
+    }));
     userPassportConfiguration(app, passport);
 }
 
