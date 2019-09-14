@@ -12,6 +12,12 @@ paths.models.map(modelPath => {
     db[model.name] = model;
 })
 
+db.coinRim.hasMany(db.artifactCoin, { as: 'rim', foreignKey: 'rim' });
+db.artifactCoin.belongsTo(db.coinRim, { foreignKey: 'rim' });
+
+db.coinPrice.hasMany(db.artifactCoin, { as: 'price', foreignKey: 'price' });
+db.artifactCoin.belongsTo(db.coinPrice, { foreignKey: 'price' });
+
 db.sequelize = sequelize;
 db.sequelizeConstructor = sequelizeConstructor;
 

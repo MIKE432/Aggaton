@@ -25,7 +25,7 @@ CREATE TABLE public.artifact_coin (
     averse BYTEA,
     reverse BYTEA,
     year DATE,
-    price DOUBLE PRECISION,
+    price INTEGER,
     estimated_amount INTEGER,
     weight NUMERIC,
     diameter NUMERIC,
@@ -34,33 +34,10 @@ CREATE TABLE public.artifact_coin (
     shape INTEGER,
     stamp TEXT,
     nominal INTEGER,
-    currency INTEGER,
-    country INTEGER,
-    mint INTEGER,
+    currency TEXT,
+    country TEXT,
+    mint TEXT,
     grading INTEGER
-);
-
-CREATE TABLE public.country (
-    id SERIAL PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL,
-    abbr TEXT
-);
-
-CREATE TABLE public.mint (
-    id SERIAL PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL,
-    country INTEGER
-);
-
-CREATE TABLE public.currency (
-    id SERIAL PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL
-);
-
-CREATE TABLE public.unit (
-    id SERIAL PRIMARY KEY NOT NULL,
-    name TEXT NOT NULL,
-    currency_id INTEGER NOT NULL
 );
 
 CREATE TABLE public.shape (
@@ -77,5 +54,26 @@ CREATE TABLE public.price (
 
 CREATE TABLE public.rim (
     id SERIAL PRIMARY KEY NOT NULL,
+    is_concave BOOLEAN,
     name TEXT NOT NULL
 );
+
+INSERT INTO public.shape VALUES (1, 'kwadrat');
+INSERT INTO public.shape VALUES (2, 'okrąg');
+INSERT INTO public.shape VALUES (3, 'kwadrat');
+INSERT INTO public.shape VALUES (4, 'wielokąt');
+
+INSERT INTO public.rim (id, name) VALUES (1, 'gładki');
+INSERT INTO public.rim (id, name) VALUES (2, 'karbowany skośnie');
+INSERT INTO public.rim (id, name) VALUES (3, 'karbowany prostopadle');
+INSERT INTO public.rim (id, name) VALUES (4, 'ornamentowa');
+INSERT INTO public.rim (id, name) VALUES (5, 'napisowa');
+
+ALTER TABLE ONLY public.artifact_coin
+    ADD CONSTRAINT artifact_coin_rim_rim_id FOREIGN KEY (rim) REFERENCES public.rim(id);
+
+ALTER TABLE ONLY public.artifact_coin
+    ADD CONSTRAINT artifact_coin_price_price_id FOREIGN KEY (price) REFERENCES public.price(id);
+
+ALTER TABLE ONLY public.artifact_coin
+    ADD CONSTRAINT artifact_coin_shape_shape_id FOREIGN KEY (shape) REFERENCES public.shape(id);

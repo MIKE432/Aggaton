@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignInForm from '../components/singnInComponent/SignInForm'
+import SignInForm from './SignInForm'
 import BannerHolder from '../../mode-guest/landing-page/BannerHolder/BannerHolder'
 import Logo from '../../mode-guest/landing-page/Logo/Logo'
 

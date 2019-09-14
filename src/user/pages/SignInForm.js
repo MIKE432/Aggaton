@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import Crypto from 'crypto-js';
-import LogInInput from '../../../core/components/inputs/LogInInput'
-import { saveUser } from '../../actions/actions'
+import LogInInput from '../../core/components/inputs/LogInInput'
+import { saveUser } from '../redux/userActions'
 
 const mapDispatchToProps = dispatch => ({
     saveUser: user => dispatch(saveUser(user))
@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => ({
 
 class SignInForm extends React.Component {
 
-    onSubmit = (formikValues, {resetForm}) => {
+    onSubmit = (formikValues, { resetForm }) => {
         const values = { ...formikValues }
         values.password = Crypto.SHA256(values.password).toString();
         this.props.saveUser(values);

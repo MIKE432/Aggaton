@@ -8,11 +8,20 @@ import ErrorBox from '../core/ctrls/ErrorBox';
 import Check from '../core/ctrls/Check';
 import Radio from '../core/ctrls/Radio';
 import Toggle from '../core/ctrls/Toggle';
+import Coin from '../coin/pages/coin';
+
 
 const formStyle = {maxWidth:'550px', padding:'20px'};
 const buttonGroupStyle = {display:'flex', paddingTop:'15px', alignItems:'start'};
 const listGroupStyle = {display:'flex', flexDirection: 'column', paddingTop:'15px', alignItems:'stretch'};
 const checkSmallFontStyle = {fontSize:'100%'};
+
+const coinProps = {
+    year: 1234,
+    price: 100000,
+    mint: 'Kraków',
+    country: 'Polska'
+}
 
 export const Playground = () => (
     <>
@@ -97,6 +106,7 @@ export const Playground = () => (
         <i>italic</i>
         <p>paragraph</p>
         <span>span</span>
+        <Coin {...coinProps}/>
     </>
 )
 export default Playground;
