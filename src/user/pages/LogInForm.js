@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import Crypto from 'crypto-js';
-import LogInInput from '../../../core/components/inputs/LogInInput'
-import { loginUser } from '../../actions/actions'
+import LogInInput from '../../core/components/inputs/LogInInput'
+import { loginUser } from '../redux/userActions'
 
 const mapDispatchToProps = dispatch => ({
     loginUser: user => dispatch(loginUser(user))

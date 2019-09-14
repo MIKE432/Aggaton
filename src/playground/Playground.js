@@ -4,12 +4,21 @@ import ComboBox from '../core/ctrls/ComboBox';
 import Combo from '../core/ctrls/Combo';
 import Button from '../core/ctrls/Button';
 import ErrorBox from '../core/ctrls/ErrorBox';
+import Coin from '../coin/pages/coin';
+
+const coinProps = {
+    year: 1234,
+    price: 100000,
+    mint: 'Kraków',
+    country: 'Polska'
+}
 
 export const Playground = () => (
     <>
         <h1>CONTROLS / Edit</h1>
         <div style={{padding:'20px'}} >
             <ComboBox name='mark' label='Marka' style={{width:'100px'}}>
+                <option value=""></option>
                 <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
@@ -36,6 +45,7 @@ export const Playground = () => (
         <i>italic</i>
         <p>paragraph</p>
         <span>span</span>
+        <Coin {...coinProps}/>
     </>
 )
 export default Playground;
