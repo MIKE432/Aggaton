@@ -18,6 +18,9 @@ db.artifactCoin.belongsTo(db.coinRim, { foreignKey: 'rim' });
 db.coinPrice.hasMany(db.artifactCoin, { as: 'price', foreignKey: 'price' });
 db.artifactCoin.belongsTo(db.coinPrice, { foreignKey: 'price' });
 
+db.coinShape.hasMany(db.artifactCoin, { as: 'shape', foreignKey: 'shape' });
+db.artifactCoin.belongsTo(db.coinShape, { foreignKey: 'shape' });
+
 db.sequelize = sequelize;
 db.sequelizeConstructor = sequelizeConstructor;
 

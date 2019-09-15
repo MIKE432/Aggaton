@@ -20,7 +20,7 @@ const BottomBar = () =>
                         <a target='blank' href='https://wcn.pl'>Warszawskie Centrum Numizmatyczne</a>
 
                     </div>
-                <div class={styles.container}>
+                <div className={styles.container}>
                 </div>
             </div>
             <div className={styles.hr} />

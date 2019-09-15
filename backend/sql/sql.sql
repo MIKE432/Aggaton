@@ -3,7 +3,7 @@ CREATE TABLE public.userd (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     salt TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL,
     password TEXT NOT NULL,
     is_expert BOOLEAN NOT NULL
 );

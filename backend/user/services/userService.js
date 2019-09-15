@@ -36,6 +36,6 @@ exports.saveUser = async (user) => {
         password: password,
         is_expert: false
     });
-
-    return mapUserToResponseModel(createdUser)
+    
+    return exports.mapUserToResponseModel(createdUser)
 }
