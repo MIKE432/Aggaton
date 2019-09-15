@@ -22,3 +22,10 @@ exports.NotFoundError = class NotFoundError extends RequestError {
         super(404, message)
     }
 }
+
+exports.handleErrors = (fn) => {
+    return function (req, res, next) {
+        const runResult = fn(req, res, next);
+        runResult.catch && runResult.catch(next);
+    };
+};

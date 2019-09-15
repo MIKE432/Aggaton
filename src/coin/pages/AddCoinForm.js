@@ -1,15 +1,37 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import Text from '../../core/ctrls/Text';
 import styles from './AddCoinForm.module.scss'
 import Button from '../../core/ctrls/Button';
 
 class AddCoinForm extends React.Component {
+
+    onSubmit() {
+
+    }
+
     render() {
         return (
             <Formik
-                render = {(formState) => (
-                    <div className={styles.form}>
+                onSubmit={this.onSubmit}
+                initalState={{
+                    year: '',
+                    price: '',
+                    estimatedAmount: '',
+                    weight: '',
+                    diameter: '',
+                    rim: '',
+                    alloy: '',
+                    shape: '',
+                    stamp: '',
+                    nominal: '',
+                    currency: '',
+                    mint: '',
+                    country: '',
+                    grading: ''
+                }}
+                render={(formState) => (
+                    <Form className={styles.form}>
                         <Text name='year' label='Rok wydania' style={{width:'400px'}} />
                         <Text name='price' label='Aktualna cena' style={{width:'400px'}} />
                         <Text name='estimatedAmount' label='Nakład' style={{width:'400px'}} />
@@ -25,7 +47,10 @@ class AddCoinForm extends React.Component {
                         <Text name='mint' label='Mennica' style={{width:'400px'}} />
                         <Text name='grading' label='Ocena' style={{width:'400px'}} />
                         <Button mode='primary' type='submit' style={{width:'200px'}}>Dodaj monetę</Button>
-                    </div>
+                        {
+                            console.log(formState.values)
+                        }
+                    </Form>
                 )}
             />
         )

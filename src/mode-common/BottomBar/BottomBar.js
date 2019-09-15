@@ -20,12 +20,12 @@ const BottomBar = () =>
                         <a target='blank' href='https://wcn.pl'>Warszawskie Centrum Numizmatyczne</a>
 
                     </div>
-                <div class={styles.container}>
+                <div className={styles.container}>
                 </div>
             </div>
             <div className={styles.hr} />
             <div className={styles.summary}>
-                <div class={styles.container}>
+                <div className={styles.container}>
                     <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link to='/terms'>Regulaminu</Link></div>
                     <div className={styles.sep} />
                     <div><Link to='/policy'>Polityka prywatności</Link></div>

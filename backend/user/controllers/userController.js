@@ -1,14 +1,12 @@
 const
+    passport = require('passport'),
     userService = require('../services/userService'),
-    passport = require('passport');
-exports.saveUser = async (req, res) => {
-    try {
+    handleErrors = require('../../core/config/errors').handleErrors
+
+exports.saveUser = handleErrors(async (req, res) => {
         await userService.saveUser(req.body);
         res.sendStatus(200);
-    } catch(err) {
-        return res.sendStatus(400);
-    }
-}
+})
 
 exports.login = (req, res, next) => {
 
