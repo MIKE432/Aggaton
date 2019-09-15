@@ -30,7 +30,7 @@ class SignInForm extends React.Component {
                     email: '',
                     password: ''
                 }}
-            render = {
+                render = {
                     (formState) => (
                         <Form className='sign-in-form'>
                             <LogInInput name='firstName' label='Imię' type='text'/>
