@@ -1,0 +1,76 @@
+@import './_ctrls.scss';
+
+.container {
+
+    @include font-label-focus;
+    color: $color-btn-text;
+    display: inline-block;
+    position: relative;
+	padding-right: $font-edit-size + $font-edit-size + 6;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container input ~ .label {
+    display: inline-block;
+    border: 1px dotted transparent;
+}
+
+.container input:focus ~ .label {
+    border: 1px dotted $color-btn-text;
+}
+
+.togglemark {
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $font-edit-size;
+    width: $font-edit-size+$font-edit-size;
+    border-radius: $font-edit-size/2 $font-edit-size/2;
+    background-color: $color-window;
+    border: 1px solid $color-ctrl-border-basic;
+    transition: all 0.33s ease-in-out;
+}
+
+.container input:checked ~ .togglemark {
+
+    background-color: $color-ctrl-border-basic;
+}
+
+.togglemark:after {
+    content: "";
+
+    display: block;
+    position: absolute;
+    top: -1px;
+
+    width: $font-edit-size;
+    height: $font-edit-size;
+    border-radius: 50%;
+    background: $color-btn-text;
+
+    transition: all .33s ease-in-out;
+}
+  
+.container .togglemark:after {
+
+    left: -1px;
+}
+
+.container input:checked ~ .togglemark:after {
+    left: $font-edit-size - 1;
+}

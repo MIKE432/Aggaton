@@ -1,0 +1,86 @@
+@import './_ctrls.scss';
+
+
+/* Customize the label (the container) */
+.container {
+
+    @include font-edit;
+    color: $color-btn-text;
+    display: inline-block;
+    position: relative;
+    padding-left: $font-edit-size + 6;
+	padding-right: 6px;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+  /* Hide the browser's default radio button */
+  .container input {
+
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+/* Create a custom radio button */
+.radiomark {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $font-edit-size;
+    width: $font-edit-size;
+    background-color: $color-window;
+    border: 1px solid $color-ctrl-border-basic;
+    transition: all 0.33s ease-in-out;
+
+    border-radius: 50%;
+}
+  
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .radiomark {
+    background-color: $color-btn-hover;
+}
+  
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .radiomark {
+    //background-color: #2196F3;
+}
+  
+.container input ~ .label {
+    display: inline-block;
+    border: 1px dotted transparent;
+}
+
+.container input:focus ~ .label {
+    border: 1px dotted $color-btn-text;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    transition: all 0.33s ease-in-out;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .radiomark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .radiomark:after {
+    top: 3px;
+    left: 3px;
+    width: $font-edit-size - 8;
+    height: $font-edit-size - 8;
+    border-radius: 50%;
+    background: $color-btn-text;
+}

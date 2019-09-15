@@ -55,6 +55,7 @@
 .form {
     @include set-button-style( #d7ba7d, black );
     background-color: inherit;
+    border-radius: 0;
 }
 
 .disabled {

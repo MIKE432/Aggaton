@@ -26,7 +26,7 @@ const BottomBar = () =>
             <div className={styles.hr} />
             <div className={styles.summary}>
                 <div class={styles.container}>
-                    <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link to='/terms'>Regulaminu</Link></div>
+                    <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link exact to='/terms'>Regulaminu</Link></div>
                     <div className={styles.sep} />
                     <div><Link to='/policy'>Polityka prywatności</Link></div>
                     <div className={styles.sep} />

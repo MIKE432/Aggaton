@@ -1,0 +1,85 @@
+@import './_ctrls.scss';
+
+/* Customize the label (the container) */
+.container {
+
+    @include font-label-focus;
+    color: $color-btn-text;
+    display: inline-block;
+    position: relative;
+    padding-left: $font-edit-size + 6;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container input ~ .label {
+    display: inline-block;
+    border: 1px dotted transparent;
+}
+
+.container input:focus ~ .label {
+    border: 1px dotted $color-btn-text;
+}
+  
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $font-edit-size;
+    width: $font-edit-size;
+    background-color: $color-window;
+    border: 1px solid $color-ctrl-border-basic;
+    transition: all 0.33s ease-in-out;
+}
+  
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: $color-btn-hover;
+}
+  
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    //background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    transition: all 0.33s ease-in-out;
+}
+  
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    top: 0px;
+    left: 3px;
+    width: $font-edit-size - 8;
+    height: $font-edit-size - 6;
+
+    border: solid $color-btn-text;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+

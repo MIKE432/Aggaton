@@ -1,7 +1,9 @@
 @import './_ctrls.scss';
 
 .component {
+
     @include ctrl-component;
+
     @include ctrl-input;
     @include ctrl-label;
 
@@ -13,11 +15,12 @@
     }
     //display:inline-flex;
     .button {
-        float: right;
-        margin-top: 6px;
-        margin-bottom: 2px;
-        width: 13px;
-        height: 13px;
+        position: absolute;
+        top: 12px;
+        right: 6px;
+
+        width: $font-edit-size - 8;
+        height: $font-edit-size - 8;
         border-left: 6px solid transparent;
         border-top: 6px solid $color-ctrl-border-focus;
         border-right: 6px solid transparent;
@@ -26,6 +29,8 @@
     }
 
     @include nca-ctrl( $font-edit-size );
+    padding-right: $font-edit-size + 6;
+
     @include nca-ctrl-for-tiny-desktop;
 }
 
@@ -40,4 +45,17 @@
 .required::after {
 	color: red;
 	content: " *";
+}
+
+.dropdown {
+
+    position: absolute;
+    z-index: 1;
+    right: -1px;
+    top: 30px; 
+    padding: inherit;
+    color: inherit;   
+    border: inherit; 
+    background-color: inherit;
+    width: inherit;
 }

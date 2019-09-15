@@ -8,15 +8,13 @@
 
     width: 100%;
 
-    border-radius: 5px;
-    border: 1px solid $color-ctrl-border-basic; 
-
-    background-color: white;
-    transition: border-color 0.33s;
+    transition: all 0.33s ease-in-out;
 }
 
-@mixin ctrl-select { 
+@mixin ctrl-select {
+
 	.value {
+
 		@include font-edit;
 		color: $color-ctrl-text; 
 
@@ -30,7 +28,9 @@
 }
 
 @mixin ctrl-input { 
+
 	.value {
+
 		@include font-edit;
 		color: $color-ctrl-text; 
 
@@ -45,7 +45,8 @@
 
 @mixin ctrl-label {
 
-	.label { 
+	.label {
+
 		@include font-label;
 		color: $color-label-text; 
 
@@ -56,6 +57,7 @@
 	}
 
 	.labelFocus {
+
 		@include font-label-focus;
 		color: $color-label-focus-text;
 		background-color: inherit;
@@ -72,6 +74,10 @@
 	$padding-top: ($focus-label-font-size/2);
 	$padding-bottom: $value-font-size/6;
 	$label-top: $padding-top + $padding-bottom;
+
+    //border-radius: 5px;
+    border: 1px solid $color-ctrl-border-basic; 
+    background-color: white;
 
 	margin-top: $margin-top;
 	padding-top: $padding-top;
@@ -95,6 +101,7 @@
 		font-size: $focus-label-font-size;
 		top: -$label-top;
 	}
+
 }    
 
 @mixin nca-ctrl-for-tiny-desktop ( $value-font-size: 28px ) {

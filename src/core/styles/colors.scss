@@ -30,7 +30,7 @@ $color-dialog: white;
 
 $color-hilight: blue;
 $color-hilight-text: white;
-$color-hoover: get-color-hoover($color-hilight);
+$color-hover: get-color-hoover($color-hilight);
 
 $color-warning: crimson;
 $color-warning-text: white;
@@ -41,7 +41,7 @@ $color-btn-shadow: get-color-3d-shadow( $color-btn-face );
 $color-btn-dkshadow: get-color-3d-dkshadow( $color-btn-face );
 $color-btn-light: get-color-3d-light( $color-btn-face );
 $color-btn-hilight: get-color-3d-hilight( $color-btn-face );
-$color-btn-hoover: get-color-3d-hoover( $color-btn-face );
+$color-btn-hover: get-color-3d-hoover( $color-btn-face );
 
 // kolor dla stopki na podstawie standardowych kolorów 
 $color-footer : $color-desktop;
