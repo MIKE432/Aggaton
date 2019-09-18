@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Field } from 'formik';
 import styles from './ComboBox.module.scss';
 
 class ComboBox extends Component {
@@ -27,9 +28,9 @@ class ComboBox extends Component {
         return (
         <div ref={this.refComponent} className={styles.component} style={this.props.style}>
             <label ref={this.refLabel} className={styles.label} htmlFor={this.props.name}>{this.props.label}</label>
-            <select ref={this.refSelect} className={styles.value} type={this.props.type} name={this.props.name} onFocus={this.handleFocus} onBlur={this.handleBlur} >
+            <Field component='select' innerRef={this.refSelect} className={styles.value} type={this.props.type} name={this.props.name} onFocus={this.handleFocus} onBlur={this.handleBlur} >
                 {this.props.children}
-            </select>
+            </Field>
         </div>
         );
     }    

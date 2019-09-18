@@ -13,13 +13,13 @@ paths.models.map(modelPath => {
 })
 
 db.coinRim.hasMany(db.artifactCoin, { as: 'rim', foreignKey: 'rim' });
-db.artifactCoin.belongsTo(db.coinRim, { foreignKey: 'rim' });
+db.artifactCoin.belongsTo(db.coinRim, { as: 'coin_rim', foreignKey: 'rim' });
 
 db.coinPrice.hasMany(db.artifactCoin, { as: 'price', foreignKey: 'price' });
-db.artifactCoin.belongsTo(db.coinPrice, { foreignKey: 'price' });
+db.artifactCoin.belongsTo(db.coinPrice, { as: 'coin_price', foreignKey: 'price' });
 
 db.coinShape.hasMany(db.artifactCoin, { as: 'shape', foreignKey: 'shape' });
-db.artifactCoin.belongsTo(db.coinShape, { foreignKey: 'shape' });
+db.artifactCoin.belongsTo(db.coinShape, { as: 'coin_shape', foreignKey: 'shape' });
 
 db.sequelize = sequelize;
 db.sequelizeConstructor = sequelizeConstructor;

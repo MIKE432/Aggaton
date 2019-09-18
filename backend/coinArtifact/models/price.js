@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         last_auction: { type: DataTypes.INTEGER, allowNull: true },
-        expert_price: { type: DataTypes.INTEGER, allowNull: true }
+        expert_price: { type: DataTypes.INTEGER, allowNull: true },
+        expert_id: { type: DataTypes.INTEGER, allowNull: true }
     }, {
         tableName: 'price',
         createdAt: false,

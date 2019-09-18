@@ -1,9 +1,10 @@
 import { all } from 'redux-saga/effects';
-import { watch } from '../../user/redux/userSaga'
+import { watch as userSaga } from '../../user/redux/userSaga';
+import { watch as coinSaga } from '../../coin/redux/coinSaga';
 
 export default function* rootSaga() {
-    console.log('rootSaga')
     yield all([
-        watch()
+        coinSaga(),
+        userSaga()
     ]);
 }

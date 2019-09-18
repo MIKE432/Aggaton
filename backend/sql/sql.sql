@@ -21,7 +21,7 @@ CREATE TABLE public.artifact (
 );
 
 CREATE TABLE public.artifact_coin (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id SERIAL PRIMARY KEY NOT NULL,
     averse BYTEA,
     reverse BYTEA,
     year DATE,

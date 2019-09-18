@@ -7,7 +7,10 @@ exports.getCoin = handleErrors(async (req, res) => {
 });
 
 exports.saveCoin = handleErrors(async (req, res) => {
-    await coinService.saveCoin(req.body);
+    await coinService.saveCoin(req.body, req.user.id);
     res.sendStatus(200);
 })
 
+exports.getDataToForm = handleErrors(async (req, res) => {
+    res.json(await coinService.getDataToForm());
+})
