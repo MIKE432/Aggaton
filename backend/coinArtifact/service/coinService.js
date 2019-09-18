@@ -22,6 +22,7 @@ exports.saveCoin = async (coinInfo, expertId) => {
         country: coinInfo.country,
         mint: coinInfo.mint,
         grading: coinInfo.grading
+        
     })
 }
 
