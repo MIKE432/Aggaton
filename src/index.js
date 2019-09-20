@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { PersistGate } from 'redux-persist/integration/react';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import initStateAndSagas from './cofnig/initStateAndSagas';
+import initStateAndSagas, { history } from './cofnig/initStateAndSagas';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const store = initStateAndSagas();
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
+    <Provider store={store.store}>
+        <PersistGate loading={null} persistor={store.persistor}>
+            <ConnectedRouter history={history}>
+                <App />
+            </ConnectedRouter>
+        </PersistGate>
     </Provider>, 
     document.getElementById('root')
 );

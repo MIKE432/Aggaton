@@ -1,7 +1,9 @@
 const userReducer = (state = { userType: 'guest' }, action) => {
     switch(action.type) {
         case 'LOGIN_USER/SUCCESS': {
-            return { ...state, ...action.data,  }
+            console.log(action.data);
+            const userType = action.data.isExpert ? 'expert' : 'user';
+            return { ...state, ...action.data, userType }
         }
         default: {
             return state

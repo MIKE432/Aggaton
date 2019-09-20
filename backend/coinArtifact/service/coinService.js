@@ -1,8 +1,20 @@
 const
     db = require('../../core/config/sequalize');
 
-exports.getCoin = (id) => {
-    return db.artifactCoin.findByPk(id, { include: [{ model: db.coinRim, as: 'coin_rim' }, { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }]})
+
+const mapCoinToResponseModel = (coin) => {
+    coin['price'] = coin.coin_price;
+    delete coin['coin_price'];
+    coin['rim'] = coin.coin_rim;
+    delete coin['coin_rim'];
+    coin['shape'] = coin.coin_shape;
+
+    return coin;
+}
+
+exports.getCoin = async (id) => {
+    const coin =  await db.artifactCoin.findByPk(id, { include: [{ model: db.coinRim, as: 'coin_rim' }, { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }]})
+    return mapCoinToResponseModel(coin);
 }
 
 exports.saveCoin = async (coinInfo, expertId) => {
@@ -11,9 +23,9 @@ exports.saveCoin = async (coinInfo, expertId) => {
         year: coinInfo.year,
         price: price.dataValues.id,
         estimated_amount: coinInfo.estimatedAmount,
-        weight: coinInfo.weight,
-        diameter: coinInfo.diameter,
-        rim: coinInfo.rim,
+        weight: coinInfo.weight.replace(',', '.'),
+        diameter: coinInfo.diameter.replace(',', '.'),
+        rim: coinInfo.rim.replace(',', '.'),
         alloy: coinInfo.alloy,
         shape: coinInfo.shape,
         stamp: coinInfo.stamp,
@@ -22,7 +34,6 @@ exports.saveCoin = async (coinInfo, expertId) => {
         country: coinInfo.country,
         mint: coinInfo.mint,
         grading: coinInfo.grading
-        
     })
 }
 

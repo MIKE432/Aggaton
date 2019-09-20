@@ -5,7 +5,7 @@ const Check = props =>
     <label className={styles.container}>
         <input type='checkbox' name={props.name} />
         <span className={styles.label}>{props.children}</span>
-        <span class={styles.togglemark}></span>
+        <span className={styles.togglemark}></span>
     </label>
 
 export default Check;

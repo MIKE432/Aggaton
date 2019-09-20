@@ -25,7 +25,7 @@ const BottomBar = () =>
             </div>
             <div className={styles.hr} />
             <div className={styles.summary}>
-                <div class={styles.container}>
+                <div className={styles.container}>
                     <div>Korzystanie z portalu oznacza akceptację postanowień jego <Link exact to='/terms'>Regulaminu</Link></div>
                     <div className={styles.sep} />
                     <div><Link to='/policy'>Polityka prywatności</Link></div>

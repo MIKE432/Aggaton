@@ -53,7 +53,7 @@ export const Playground = () => (
                         <Check name='pass' label='hasło' type='password' style={{width:'200px'}}>
                             <span style={checkSmallFontStyle}>
                                 Oświadczam, że zapoznałem/-am się z poniższymi informacjami 
-                                oraz <Link exact to='/terms'>Regulaminem</Link> platformy Agralan, który akceptuję i wyrażam zgodę
+                                oraz <Link to='/terms'>Regulaminem</Link> platformy Agralan, który akceptuję i wyrażam zgodę
                                 na przetwarzanie moich danych osobowych podanych 
                                 przeze mnie w formularzu rejestracyjnym wraz z załącznikami we wskazanych poniżej celach i zakresie.
                             </span>
