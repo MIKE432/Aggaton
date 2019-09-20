@@ -9,9 +9,11 @@ import ErrorBox from '../core/ctrls/ErrorBox';
 import Check from '../core/ctrls/Check';
 import Radio from '../core/ctrls/Radio';
 import Toggle from '../core/ctrls/Toggle';
+import FilePicker, {FilePickerButton, FilePickerTile} from '../core/ctrls/FilePicker'
 import Coin from '../coin/pages/coin';
 
 
+const width = {maxWidth:'550px', width:'550px'};
 const formStyle = {maxWidth:'550px', padding:'20px'};
 const buttonGroupStyle = {display:'flex', paddingTop:'15px', alignItems:'start'};
 const listGroupStyle = {display:'flex', flexDirection: 'column', paddingTop:'15px', alignItems:'stretch'};
@@ -25,12 +27,19 @@ const coinProps = {
 }
 
 export const Playground = () => (
+    <>
     <Formik
         render={(formState) => (
             <>
+            <input type='file' filename="test" style={{width:'100px'}}></input>
             <h1>CONTROLS / Edit</h1>
             <div style={{display:'flex'}}>
                 <div style={formStyle} >
+                    <div style={buttonGroupStyle}>
+                        <FilePicker name='image'>Prześlij zdjęcie</FilePicker>
+                        <FilePickerButton name='image'>Prześlij zdjęcie</FilePickerButton>
+                        <FilePickerTile name='image'>Prześlij zdjęcie</FilePickerTile>
+                    </div>
                     <div style={buttonGroupStyle}>
                         <ComboBox name='mark' label='Marka' style={{width:'100px'}}>
                             <option value="volvo">Volvo</option>
@@ -110,8 +119,9 @@ export const Playground = () => (
             <p>paragraph</p>
             <span>span</span>
             <Coin {...coinProps}/>
-        </>
+            </>
         )}
     />
+    </>
 )
 export default Playground;
