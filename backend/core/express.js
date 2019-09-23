@@ -56,12 +56,19 @@ const initRouters = (app) => {
     });
 }
 
+const initAllowLists = () => {
+    paths.accessLists.forEach(allowListPath => {
+        require(path.resolve(allowListPath)).accessList()
+    })
+}
+
 exports.initExpress = () => {
     let app = express();
     
     setHeaders(app);
     middleWares(app);    
     initRouters(app);
+    initAllowLists();
 
     app.listen(PORT, () => {
         

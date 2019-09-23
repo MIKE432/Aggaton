@@ -12,8 +12,7 @@ const safe = (saga, ...options) => function* (action) {
 
 export function* errorSaga(error) {
     const response = error.response;
-    if(response && response.status === 500) {
-        console.log('lsalldal')
+    if(response && response.status === 401) {
         yield put(logOutUser());
     } else {
         yield;

@@ -5,8 +5,9 @@ const userReducer = (state = { userType: 'guest' }, action) => {
                         console.log(action)
             return { ...state, ...action.data, userType }
         }
-        case 'LOGOUT_USER': {
-            return { ...state,  userType: 'guest' }
+        case 'LOGOUT_USER/SUCCESS': {
+            console.log('action.payload');
+            return { userType: 'guest' }
         }
         default: {
             return state

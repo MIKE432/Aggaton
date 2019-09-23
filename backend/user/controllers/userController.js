@@ -26,3 +26,8 @@ exports.login = (req, res, next) => {
         }
     })(req, res, next);
 }
+
+exports.logout = handleErrors(async (req, res) => {
+    req.logout();
+    res.sendStatus(200);
+})
