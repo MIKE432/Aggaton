@@ -5,12 +5,20 @@ const
     
 
 exports.mapUserToResponseModel = (user) => {
+    const userTypes = [];
+
+    if (user.is_expert) {
+        userTypes.push('expert');
+    }
+      
+    userTypes.push('user');
     return {
         id: user.id,
         firstName: user.first_name,
         lastName: user.last_name,
         email: user.email,
-        isExpert: user.is_expert
+        isExpert: user.is_expert,
+        userTypes
     }
 };
 

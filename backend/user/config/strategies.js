@@ -5,7 +5,7 @@ const
     UnauthorizedError = require('../../core/config/errors').UnauthorizedError,
     userService = require('../services/userService');
     
-module.exports =  (passport) => {
+module.exports = (passport) => {
 
     passport.use(new LocalStrategy({
         usernameField: 'email',
