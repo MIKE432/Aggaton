@@ -2,7 +2,6 @@ import React from 'react';
 import BannerHolder from './BannerHolder/BannerHolder';
 import Logo from './Logo/Logo';
 import Button from '../../core/ctrls/Button';
-import styles from './BannerSection.module.scss';
 
 const BannerSection = () => 
     <BannerHolder>

@@ -9,7 +9,7 @@ import ErrorBox from '../core/ctrls/ErrorBox';
 import Check from '../core/ctrls/Check';
 import Radio from '../core/ctrls/Radio';
 import Toggle from '../core/ctrls/Toggle';
-import Coin from '../coin/pages/coin';
+import Coin from '../coin/pages/Coin';
 
 
 const formStyle = {maxWidth:'550px', padding:'20px'};
@@ -91,7 +91,7 @@ export const Playground = () => (
                         <Radio name='pass'>Test</Radio>
                     </div>
                     <div style={buttonGroupStyle}>
-                        <ErrorBox label='email' popup={false} visible={true}>Podaj prawidłowy email - <a href=''>chłopie</a> :) adsfasd fas<br /><b>Twój system</b></ErrorBox>
+                        <ErrorBox label='email' popup={false} visible={true}>Podaj prawidłowy email - <a href='#chlopie'>chłopie</a> :) adsfasd fas<br /><b>Twój system</b></ErrorBox>
                     </div>
                     <div style={buttonGroupStyle}>
                         <Button mode='button' type='submit' style={{width:'100px'}}>Normal</Button>
@@ -109,7 +109,6 @@ export const Playground = () => (
             <i>italic</i>
             <p>paragraph</p>
             <span>span</span>
-            <Coin {...coinProps}/>
         </>
         )}
     />

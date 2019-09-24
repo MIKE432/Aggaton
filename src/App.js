@@ -6,6 +6,7 @@ import './core/consts/ScssToExport.scss';
 import Routes from './core/components/Routes';
 import { selectUserType } from './user/redux/userActions';
 import { CookiesProvider } from 'react-cookie';
+import TopBar from './mode-guest/Topbar/Topbar';
 
 const mapStateToProps = state => ({
     userType: selectUserType(state)
@@ -16,6 +17,9 @@ class App extends React.Component {
         return (
             <>
             <CookiesProvider >
+                {
+                    this.props.userType !== 'guest' ? <TopBar /> : null
+                }
                 <Routes userType={this.props.userType}/>
                 <BottomBar />
             </CookiesProvider>

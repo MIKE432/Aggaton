@@ -1,15 +1,18 @@
 const
     db = require('../../core/config/sequalize');
 
-
 const mapCoinToResponseModel = (coin) => {
     coin['price'] = coin.coin_price;
-    delete coin['coin_price'];
     coin['rim'] = coin.coin_rim;
-    delete coin['coin_rim'];
     coin['shape'] = coin.coin_shape;
 
     return coin;
+}
+
+exports.getCoins = async () => {
+    const coins =  await db.artifactCoin.findAll( { include: [{ model: db.coinRim, as: 'coin_rim' }, { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }]})
+        .map(coin => mapCoinToResponseModel(coin));
+    return coins;
 }
 
 exports.getCoin = async (id) => {

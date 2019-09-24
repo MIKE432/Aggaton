@@ -5,58 +5,62 @@ import LandingPage from '../../mode-guest/landing-page/LandingPage'
 import Policy from '../../mode-common/Policy/Policy';
 import Terms from '../../mode-common/Terms/Terms';
 import AddCoinPage from '../../coin/pages/AddCoinPage';
-
+import CoinList from '../../coin/pages/CoinListPage'
 
 export const allRoutes = () => ({
     guest: [{
         exact: true,
-        path:'/',
+        path: '/',
         component: LandingPage
     }, {
         exact: true,
-        path:'/login',
+        path: '/login',
         component: LogInPage
     }, {
         exact: true,
-        path:'/signin',
+        path: '/signin',
         component: SignInPage
     }, {
         exact: true,
-        path:'/playground',
+        path: '/playground',
         component: Playground
     }, {
         exact: true,
-        path:'/terms',
+        path: '/terms',
         component: Terms
     }, {
         exact: true,
-        path:'/policy',
+        path: '/policy',
         component: Policy
     }, {
         exact: true,
-        path:'/coin/new',
+        path: '/coin',
+        component: CoinList
+    }, {
+        exact: true,
+        path: '/coin/new',
         component: AddCoinPage
     }],
     user: [{
         exact: true,
-        path:'/',
+        path: '/',
         component: Playground
     }, {
         exact: true,
-        path:'/terms',
+        path: '/terms',
         component: Terms
     }, {
         exact: true,
-        path:'/policy',
+        path: '/policy',
         component: Policy
     }, {
         exact: true,
-        path:'/coin/new',
-        component: AddCoinPage
+        path: '/coin',
+        component: CoinList
     }, {
         exact: true,
-        path:'/login',
-        component: LogInPage
+        path: '/coin/new',
+        component: AddCoinPage
     }],
     expert: []
 })

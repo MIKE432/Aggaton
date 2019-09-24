@@ -1,4 +1,4 @@
-@import '../../consts/Colors.module.scss';
+@import '../../core/styles/colors.scss';
 
 .Informations {
     color: green;
@@ -6,14 +6,13 @@
     position: sticky;
     transition: .5s ease-in-out;  
     top: 130px;
-    background-color: var(--main-color);
+    background-color: black;
     display: flex;
 }
 
 i {
     transition: .5s ease-in-out;
     
-
     &:hover {
         cursor: pointer;
         color:rgba(255, 253, 163, 0.664)

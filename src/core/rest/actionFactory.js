@@ -2,4 +2,4 @@ export const requestAction = (baseType, payload) => ({ type: `${baseType}/REQUES
 
 export const requestSuccessAction = (baseType, data) => ({ type: `${baseType}/SUCCESS`, baseType, data });
 
-export const selectRest = (state, baseType) => state.rest[baseType]; 
+export const selectRest = (state, baseType) => state.rest[baseType];

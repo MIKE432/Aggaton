@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBarContent from './TopBarContent'
 import Styles from './TopBar.module.scss'
-import SearchComponent from '../search/SearchComponent'
+import SearchComponent from '../../core/components/search/SearchComponent';
 class TopBar extends React.Component {
     constructor(props) {
         super(props);
