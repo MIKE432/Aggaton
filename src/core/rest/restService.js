@@ -10,9 +10,10 @@ const safe = (saga, ...options) => function* (action) {
 }
 
 
-export function* errorSaga(error) {
+export function* errorSaga(error, action) {
     const response = error.response;
-    if(response && response.status === 401) {
+
+    if(response && response.status === 401 && action.type !== 'LOGIN_USER/REQUEST' ) {
         yield put(logOutUser());
     } else {
         yield;

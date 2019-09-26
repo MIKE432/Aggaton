@@ -12,6 +12,8 @@ exports.mapUserToResponseModel = (user) => {
     }
       
     userTypes.push('user');
+
+    console.log('a', user)
     return {
         id: user.id,
         firstName: user.first_name,
@@ -25,7 +27,7 @@ exports.mapUserToResponseModel = (user) => {
 exports.getUser = async (email, raw) => {
     const user = await db.user.findOne({ where: { email } });
     if(!raw) {
-        return mapUserToResponseModel(user);
+        return exports.mapUserToResponseModel(user);
     }
 
     return user;
@@ -36,7 +38,7 @@ exports.saveUser = async (user) => {
     const passwordAndSalt = user.password + salt;
     const password = Crypto.SHA256(passwordAndSalt).toString();
 
-    const createdUser =  db.user.create({
+    const createdUser = await db.user.create({
         first_name: user.firstName,
         last_name: user.lastName,
         salt: salt,
@@ -45,5 +47,5 @@ exports.saveUser = async (user) => {
         is_expert: false
     });
     
-    return exports.mapUserToResponseModel(createdUser)
+    return exports.mapUserToResponseModel(createdUser.dataValues)
 }

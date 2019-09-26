@@ -3,9 +3,18 @@ const
     userService = require('../services/userService'),
     handleErrors = require('../../core/config/errors').handleErrors
 
-exports.saveUser = handleErrors(async (req, res) => {
-        await userService.saveUser(req.body);
-        res.sendStatus(200);
+exports.saveUser = handleErrors(async (req, res, next) => {
+        const user = await userService.saveUser(req.body);
+        console.log(user);
+        delete user.password;
+        delete user.salt;
+        req.login(user, (err) => {
+            if(err) {
+                next(err)
+            } else {
+                res.json(user);
+            }
+        }); 
 })
 
 exports.login = (req, res, next) => {
@@ -14,8 +23,6 @@ exports.login = (req, res, next) => {
         if(err) {
             next(err)
         } else {
-            delete user.password;
-            delete user.salt;
             req.login(user, (err) => {
                 if(err) {
                     next(err)
@@ -26,6 +33,11 @@ exports.login = (req, res, next) => {
         }
     })(req, res, next);
 }
+
+exports.getCurrentUser = handleErrors(async (req, res) => {
+    console.log(req.user);
+    res.json(req.user)
+})
 
 exports.logout = handleErrors(async (req, res) => {
     req.logout();

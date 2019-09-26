@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Coin.module.scss'
+import styles from './Coin.module.scss';
 
 const Coin = (props) => (
     <div className={styles.coinContainer}>

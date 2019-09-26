@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => ({
 class AddCoinForm extends React.Component {
 
     onSubmit = (values) => {
-        console.log(values)
         this.props.saveCoin(values)
     }
 

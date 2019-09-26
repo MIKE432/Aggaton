@@ -1,9 +1,10 @@
 class RequestError extends Error {
-    constructor(message, status) {
-        this.message = message;
+    constructor(status, message) {
+        super(message)
         this.status = status;
     }
 }
+exports.RequestError = RequestError;
 
 exports.BadRequestError = class BadRequestError extends RequestError {
     constructor(message) {

@@ -1,7 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import TopBarContent from './TopBarContent'
 import Styles from './TopBar.module.scss'
 import SearchComponent from '../../core/components/search/SearchComponent';
+import { logOutUser } from '../../user/redux/userActions';
+
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({
+    logOutUser: () => dispatch(logOutUser())
+});
+
 class TopBar extends React.Component {
     constructor(props) {
         super(props);
@@ -46,8 +57,10 @@ class TopBar extends React.Component {
                     <div className={Styles.Informations} ref = {this.BottomNavBar}>
                         <i ref = {this.ArrowRef} className="fas fa-arrow-up fa-2x" onClick = {this.toggleShow} ></i>
                         <div className = 'search-box'>
-                            
                             <SearchComponent />
+                        </div>
+                        <div onClick={this.props.logOutUser}>
+                            <i className="fas fa-sign-out-alt fa-2x" ></i>
                         </div>
                     </div>
 
@@ -57,4 +70,4 @@ class TopBar extends React.Component {
     }
 }
 
-export default TopBar;
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar);
