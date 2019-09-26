@@ -5,7 +5,6 @@ const
 
 exports.saveUser = handleErrors(async (req, res, next) => {
         const user = await userService.saveUser(req.body);
-        console.log(user);
         delete user.password;
         delete user.salt;
         req.login(user, (err) => {
@@ -35,7 +34,6 @@ exports.login = (req, res, next) => {
 }
 
 exports.getCurrentUser = handleErrors(async (req, res) => {
-    console.log(req.user);
     res.json(req.user)
 })
 

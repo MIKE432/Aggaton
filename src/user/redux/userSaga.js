@@ -24,7 +24,6 @@ export function* logoutUserSaga(action) {
 
 export function* getCurrentUserSaga(action) {
     const currentUser = yield call(apiCall, '/api/user');
-    console.log(currentUser)
     yield put(getCurrentUserSuccess(currentUser.data));
 }
 

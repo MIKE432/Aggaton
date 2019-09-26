@@ -12,8 +12,7 @@ exports.mapUserToResponseModel = (user) => {
     }
       
     userTypes.push('user');
-
-    console.log('a', user)
+    
     return {
         id: user.id,
         firstName: user.first_name,
