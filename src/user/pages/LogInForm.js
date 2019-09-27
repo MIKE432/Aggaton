@@ -2,7 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { connect } from 'react-redux';
 import Crypto from 'crypto-js';
-import LogInInput from '../../core/components/inputs/LogInInput'
+import Text from '../../core/ctrls/Text';
+import Button from '../../core/ctrls/Button'
 import { loginUser } from '../redux/userActions'
 
 const mapDispatchToProps = dispatch => ({
@@ -32,9 +33,9 @@ class LogInForm extends React.Component {
                     render = {
                         (formState) => (
                             <Form className = 'sign-in-form'>
-                                <LogInInput name = 'email' label = 'E-mail' type = 'email'/>
-                                <LogInInput name = 'password' label = 'Hasło' type = 'password'/>
-                                <button className = 'login-button' type="submit">Zarejestruj się!</button>
+                                <Text name = 'email' label = 'E-mail' type = 'email' style={{width: '300px'}}/>
+                                <Text name = 'password' label = 'Hasło' type = 'password' style={{width: '300px'}}/>
+                                <Button type="submit">Zaloguj się!</Button>
                             </Form>
                         )
                     }
