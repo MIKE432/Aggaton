@@ -13,15 +13,20 @@ module.exports = (passport) => {
       },
         async (email, password, done) => {
 
-
         const user = await userService.getUser(email, true);
+
+        if(!user) {
+            return done(new UnauthorizedError('Invalid username or password'));
+        };
 
         const passwordAndSalt = password + user.salt;
         const hashedPassword = Crypto.SHA256(passwordAndSalt).toString();
 
-        if(!user || !(hashedPassword === user.password )) {
+        if(!(hashedPassword === user.password)) {
             return done(new UnauthorizedError('Invalid username or password'));
         }
+
+
 
         return done(null, userService.mapUserToResponseModel(user));
 

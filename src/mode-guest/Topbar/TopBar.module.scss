@@ -1,13 +1,20 @@
-@import '../../core/styles/colors.scss';
+@import '../../core/styles/colors.scss'; 
 
 .Informations {
-    color: green;
-    padding: 10px;
+    color: white;
+    padding: 4px;
     position: sticky;
     transition: .5s ease-in-out;  
     top: 130px;
     background-color: black;
     display: flex;
+    height: 45px;
+    padding: 0 4%;
+}
+
+.icons {
+    display: flex;
+    align-items: center
 }
 
 i {

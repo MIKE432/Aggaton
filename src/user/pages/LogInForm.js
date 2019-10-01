@@ -5,6 +5,13 @@ import Crypto from 'crypto-js';
 import Text from '../../core/ctrls/Text';
 import Button from '../../core/ctrls/Button'
 import { loginUser } from '../redux/userActions'
+import * as yup from 'yup';
+
+
+const logInFormSchema = () => yup.object().shape({
+    email: yup.string().email().required('dsadsadsadsa'),
+    password: yup.string().min(5)
+})
 
 const mapDispatchToProps = dispatch => ({
     loginUser: user => dispatch(loginUser(user))
@@ -30,12 +37,16 @@ class LogInForm extends React.Component {
                         email: '',
                         password: ''
                     }}
+                    validationSchema={logInFormSchema()}
                     render = {
                         (formState) => (
                             <Form className = 'sign-in-form'>
-                                <Text name = 'email' label = 'E-mail' type = 'email' style={{width: '300px'}}/>
-                                <Text name = 'password' label = 'Hasło' type = 'password' style={{width: '300px'}}/>
-                                <Button type="submit">Zaloguj się!</Button>
+                                {
+                                    console.log(formState)
+                                }
+                                <Text name = 'email' label = 'E-mail' />
+                                <Text name = 'password' label = 'Hasło' type = 'password'/>
+                                <Button disabled={false} type="submit">Zaloguj się!</Button>
                             </Form>
                         )
                     }

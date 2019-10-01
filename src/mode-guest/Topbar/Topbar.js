@@ -27,8 +27,6 @@ class TopBar extends React.Component {
 
         this.toggleShow = () => {
             if(this.state.isShow) {
-
-                this.ArrowRef.current.classList.add(Styles.ArrowOnHide)
                 this.TopBarRef.current.TopBarContentRef.current.classList.add(Styles.onHide);
                 this.BottomNavBar.current.classList.add(Styles.InformationsOnHide);
                 this.setState({isShow: false});
@@ -36,7 +34,6 @@ class TopBar extends React.Component {
             else {
                 this.TopBarRef.current.TopBarContentRef.current.classList.remove(Styles.onHide);
                 this.BottomNavBar.current.classList.remove(Styles.InformationsOnHide);
-                this.ArrowRef.current.classList.remove(Styles.ArrowOnHide);
                 this.setState({isShow: true});
             }
         }
@@ -55,12 +52,17 @@ class TopBar extends React.Component {
                 <div className={Styles.TopBar}>
                     <TopBarContent ref = {this.TopBarRef} hideTopBar = {this.onClick} />
                     <div className={Styles.Informations} ref = {this.BottomNavBar}>
-                        <i ref = {this.ArrowRef} className="fas fa-arrow-up fa-2x" onClick = {this.toggleShow} ></i>
+                        <div className={Styles.icons}>
+                            <i ref = {this.ArrowRef} className="fas fa-bars" onClick = {this.toggleShow} ></i>
+                        </div>
                         <div className = 'search-box'>
                             <SearchComponent />
                         </div>
-                        <div onClick={this.props.logOutUser}>
-                            <i className="fas fa-sign-out-alt fa-2x" ></i>
+                        <div className={Styles.icons} onClick={this.props.logOutUser}>
+                            <i className="fas fa-bell" ></i>
+                        </div>
+                        <div className={Styles.icons} onClick={this.props.logOutUser}>
+                            <i className="fas fa-sign-out-alt" ></i>
                         </div>
                     </div>
 
