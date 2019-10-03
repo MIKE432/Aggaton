@@ -1,0 +1,24 @@
+@import '../../core/styles/colors.scss';
+
+.notificationsBackground {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 998;
+    position: fixed;
+    top: 0;
+}
+
+.notificationsContainer {
+    position: fixed;
+    height: 500px;
+    width: 300px;
+    right: 3%;
+    background-color: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid $color-btn-face;
+    
+}

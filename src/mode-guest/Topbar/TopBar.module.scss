@@ -14,7 +14,17 @@
 
 .icons {
     display: flex;
-    align-items: center
+    align-items: center;
+    margin: 0 10px;
+}
+
+.userName {
+    max-width: 250px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 i {
