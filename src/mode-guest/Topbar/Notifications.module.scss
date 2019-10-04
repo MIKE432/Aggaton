@@ -10,15 +10,10 @@
 }
 
 .notificationsContainer {
-    position: fixed;
     height: 500px;
     width: 300px;
-    right: 3%;
     background-color: white;
     z-index: 999;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: 1px solid $color-btn-face;
-    
 }

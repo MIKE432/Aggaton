@@ -5,7 +5,7 @@ import Styles from './TopBar.module.scss'
 import SearchComponent from '../../core/components/search/SearchComponent';
 import { logOutUser, selectUser } from '../../user/redux/userActions';
 import Notifications from './Notifications';
-
+import PopupMenu from '../../core/ctrls/PopupMenu/PopupMenu';
 const mapStateToProps = state => ({
     user: selectUser(state)
 })
@@ -20,7 +20,7 @@ class TopBar extends React.Component {
 
         this.state = {
             isShow: true,
-            showNotifications: false
+            isOpen: ''
         }
 
 
@@ -49,32 +49,52 @@ class TopBar extends React.Component {
         this.BottomNavBar.current.classList.add(Styles.InformationsOnHide);
     }
 
-    toggleNotifications = () => {
-        this.setState({ showNotifications: !this.state.showNotifications})
+    toggleMenu = (menu) => {
+        if(this.state.isOpen === menu) {
+            this.setState({ isOpen: ''})
+        } else {
+            this.setState({ isOpen: menu})
     };
+        }
+        
 
-    closeNotifications = () => {
-        if(this.state.showNotifications) {
-            this.setState({ showNotifications: false })
+    closeMenu = () => {
+        if(this.state.isOpen !== '') {
+            this.setState({ isOpen: '' })
         }
     }
 
     render() {
         return (
             <>
-                <div className={Styles.TopBar} onClick={this.closeNotifications}>
-                    <TopBarContent ref = {this.TopBarRef} hideTopBar = {this.onClick} />
-                    <div className={Styles.Informations} ref = {this.BottomNavBar}>
-                        <div className={Styles.icons}>
+                <div className={Styles.TopBar}>
+                    <TopBarContent ref = {this.TopBarRef} hideTopBar = {this.onClick} hideMenus={this.closeMenu}/>
+                    <div className={Styles.Informations} ref = {this.BottomNavBar} >
+                        <div className={Styles.icons} onClick={this.closeMenu}>
                             <i ref = {this.ArrowRef} className="fas fa-bars" onClick = {this.toggleShow} ></i>
                         </div>
-                        <div className = 'search-box'>
+                        <div className = 'search-box' onClick={this.closeMenu}>
                             <SearchComponent />
                         </div>
-                        <div className={Styles.icons} onClick={this.toggleNotifications}>
-                            <i className="fas fa-bell" ></i>
-                        </div>
-                        <div className={Styles.userName}>
+                        <PopupMenu
+                            triggerComponent={(
+                                <div className={Styles.icons} onClick={() => this.toggleMenu('notifications')}>
+                                    <i className='fas fa-bell' ></i>
+                            </div>)}
+                            popupContent={(<div></div>)}
+                            close={this.closeMenu}
+                            openContent={this.state.isOpen === 'notifications'}
+                        />
+                        <PopupMenu 
+                            triggerComponent={(
+                                <div className={Styles.icons} onClick={() => this.toggleMenu('messages')}>
+                                    <i className='fas fa-comment' ></i>
+                            </div>)} 
+                            popupContent={(<Notifications />)}
+                            close={this.closeMenu}
+                            openContent={this.state.isOpen === 'messages'}
+                        />
+                        <div className={Styles.userName} onClick={this.closeMenu}>
                             <span>{this.props.user.firstName} {this.props.user.lastName}</span>
                         </div>
                         <div className={Styles.icons} onClick={this.props.logOutUser}>
@@ -82,12 +102,6 @@ class TopBar extends React.Component {
                         </div>
                     </div>
                 </div>
-                {
-                    console.log(this.state.showNotifications)
-                }
-                {
-                    this.state.showNotifications ?  <Notifications hideNotifications={this.closeNotifications}/> : null
-                }
         </> 
         )
     }

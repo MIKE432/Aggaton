@@ -15,7 +15,6 @@ class Notifications extends React.Component {
                         <Information date='24-01-19' informationType='wazna' information='masdoajkaf afs'/>
                     </div>
                 </div>
-                <div className={Styles.notificationsBackground} onClick={this.props.hideNotifications} />
             </>
         )
     }

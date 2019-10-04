@@ -1,0 +1,14 @@
+@import '../../styles/colors.scss';
+
+.popupContent {
+    position: absolute;
+    color: black;
+    background-color: white;
+    min-width: 200px;
+    min-height: 300px;
+    top: 50px;
+    z-index: 999;
+    border: 1px solid #d7ba7d;
+    box-shadow: 1px 1px 1px #d7ba7d
+}
+
