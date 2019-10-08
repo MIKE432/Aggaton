@@ -62,5 +62,25 @@ export const allRoutes = () => ({
         path: '/coin/new',
         component: AddCoinPage
     }],
-    expert: []
+    expert: [{
+        exact: true,
+        path: '/',
+        component: Playground
+    }, {
+        exact: true,
+        path: '/terms',
+        component: Terms
+    }, {
+        exact: true,
+        path: '/policy',
+        component: Policy
+    }, {
+        exact: true,
+        path: '/coin',
+        component: CoinList
+    }, {
+        exact: true,
+        path: '/coin/new',
+        component: AddCoinPage
+    }],
 })

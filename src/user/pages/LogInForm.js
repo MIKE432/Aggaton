@@ -41,9 +41,6 @@ class LogInForm extends React.Component {
                     render = {
                         (formState) => (
                             <Form className = 'sign-in-form'>
-                                {
-                                    console.log(formState)
-                                }
                                 <Text name = 'email' label = 'E-mail' />
                                 <Text name = 'password' label = 'Hasło' type = 'password'/>
                                 <Button disabled={false} type="submit">Zaloguj się!</Button>
