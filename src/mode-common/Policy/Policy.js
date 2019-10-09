@@ -1,6 +1,9 @@
 import React from 'react';
+import BannerHolder from '../../mode-guest/landing-page/BannerHolder/BannerHolder'
 
 const Policy = () => 
-    <div>Polityka prywatności</div>
+    <BannerHolder>
+        <h1>Polityka prywatności</h1>
+    </BannerHolder>
 
 export default Policy; 

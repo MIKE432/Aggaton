@@ -21,7 +21,11 @@ class Button extends Component {
             if( this.props.to ) {
                 event.preventDefault();
                 this.props.history.push( this.props.to );
+            } else if( this.props.onClick ) {
+
+                this.props.onClick( event );
             }
+
         }
     }
     

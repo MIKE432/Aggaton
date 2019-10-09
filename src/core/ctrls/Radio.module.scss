@@ -4,7 +4,7 @@
 /* Customize the label (the container) */
 .container {
 
-    @include font-edit;
+    @include font-label-focus;
     color: $color-btn-text;
     display: inline-block;
     position: relative;
