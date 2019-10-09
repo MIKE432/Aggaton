@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => ({
 class AddCoinForm extends React.Component {
 
     onSubmit = (values) => {
-        console.log(values)
         this.props.saveCoin(values)
     }
 
@@ -44,29 +43,37 @@ class AddCoinForm extends React.Component {
                 }}
                 render={(formState) => (
                     <Form className={styles.form}>
-                        <Text name='year' label='Rok wydania' style={{width:'400px'}} />
-                        <Text name='price' label='Aktualna cena' style={{width:'400px'}} />
-                        <Text name='estimatedAmount' label='Nakład' style={{width:'400px'}} />
-                        <Text name='weight' label='Waga' style={{width:'400px'}} />
-                        <Text name='diameter' label='Średnica' style={{width:'400px'}} />
-                        <ComboBox name='rim' label='Krawędź' style={{width:'400px'}}>
-                            <option value=""></option>
-                            {
-                                this.props.dataToForm && this.props.dataToForm.rims && this.props.dataToForm.rims.map(rim => (
-                                    <option key={rim.id} value={rim.id}>{rim.name}</option>
-                                ))
-                            }
-                        </ComboBox>
-                        <Text name='alloy' label='Stop' style={{width:'400px'}} />
-                        <ComboBox name='shape' label='Kształt' style={{width:'400px'}}>
+                        <div>
+                            <Text name='year' label='Rok wydania' style={{width:'150px'}} />
+                            <Text name='price' label='Aktualna cena' style={{width:'150px'}} />
+                            <Text name='estimatedAmount' label='Nakład' style={{width:'150px'}} />
+                            <Text name='weight' label='Waga' style={{width:'150px'}} />
+                            <Text name='diameter' label='Średnica' style={{width:'150px'}} />
+                        </div>
+                        <div>
+                            <ComboBox name='rim' label='Krawędź' style={{width:'400px'}}>
+                                <option value=""></option>
+                                {
+                                    this.props.dataToForm && this.props.dataToForm.rims && this.props.dataToForm.rims.map(rim => (
+                                        <option key={rim.id} value={rim.id}>{rim.name}</option>
+                                    ))
+                                }
+                            </ComboBox>
+                            <ComboBox name='shape' label='Kształt' style={{width:'400px'}}>
                             <option value=""></option>
                             {
                                 this.props.dataToForm && this.props.dataToForm.shapes && this.props.dataToForm.shapes.map(shape => (
                                     <option key={shape.id} value={shape.id}>{shape.name}</option>
                                 ))
                             }
-                        </ComboBox>
+                            </ComboBox>
+                        </div>
+
+                        <Text name='alloy' label='Stop' style={{width:'400px'}} />
+
                         <Text name='stamp' label='Stempel' style={{width:'400px'}} />
+                        <Text name='name' label='Nazwa' style={{width:'400px'}} />
+                        <Text name='symbol' label='Symbol' style={{width:'400px'}} />
                         <Text name='nominal' label='Nominał' style={{width:'400px'}} />
                         <Text name='currency' label='Waluta' style={{width:'400px'}} />
                         <Text name='country' label='Kraj' style={{width:'400px'}} />

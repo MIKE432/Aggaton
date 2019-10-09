@@ -10,8 +10,6 @@ import Check from '../core/ctrls/Check';
 import Radio from '../core/ctrls/Radio';
 import Toggle from '../core/ctrls/Toggle';
 import FilePicker, {FilePickerButton, FilePickerTile} from '../core/ctrls/FilePicker'
-import Coin from '../coin/pages/coin';
-
 
 const width = {maxWidth:'550px', width:'550px'};
 const formStyle = {maxWidth:'550px', padding:'20px'};
@@ -100,7 +98,7 @@ export const Playground = () => (
                         <Radio name='pass'>Test</Radio>
                     </div>
                     <div style={buttonGroupStyle}>
-                        <ErrorBox label='email' popup={false} visible={true}>Podaj prawidłowy email - <a href=''>chłopie</a> :) adsfasd fas<br /><b>Twój system</b></ErrorBox>
+                        <ErrorBox label='email' popup={false} visible={true}>Podaj prawidłowy email - <a href='#chlopie'>chłopie</a> :) adsfasd fas<br /><b>Twój system</b></ErrorBox>
                     </div>
                     <div style={buttonGroupStyle}>
                         <Button mode='button' type='submit' style={{width:'100px'}}>Normal</Button>
@@ -118,8 +116,8 @@ export const Playground = () => (
             <i>italic</i>
             <p>paragraph</p>
             <span>span</span>
-            <Coin {...coinProps}/>
-            </>
+
+        </>
         )}
     />
     </>

@@ -1,0 +1,16 @@
+.triggerComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contentBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 998;
+    position: absolute;
+    top: 44px;
+    left: 0;
+}

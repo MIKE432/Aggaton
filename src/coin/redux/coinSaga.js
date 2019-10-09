@@ -1,10 +1,7 @@
 import { call, takeEvery, put } from 'redux-saga/effects'
 import { apiCall } from '../../core/rest/restClient'
-import { SAVE_COIN, GET_DATA_FORM, getDataToFormSuccess, saveCoinSuccess } from './coinActions'
-
-export function* saveUserSaga(action) {
-    yield call(apiCall, '/api/signin', 'POST', {}, action.payload)
-}
+import { SAVE_COIN, GET_DATA_FORM, getDataToFormSuccess, saveCoinSuccess, GET_COINS, getCoinsSuccess, GET_COIN } from './coinActions'
+import { safeRequest } from '../../core/rest/restService';
 
 export function* saveCoinSaga(action) {
     yield call(apiCall, '/api/coin/new', 'POST', {}, action.payload);
@@ -16,7 +13,13 @@ export function* getDataToFormSaga(action) {
     yield put(getDataToFormSuccess(dataToForm.data))
 }
 
+export function* getCoinsSaga(action) {
+    const coins = yield call(apiCall, '/api/coin');
+    yield put(getCoinsSuccess(coins.data));
+}
+
 export function* watch() {
-    yield takeEvery(`${SAVE_COIN}/REQUEST`, saveCoinSaga);
-    yield takeEvery(`${GET_DATA_FORM}/REQUEST`, getDataToFormSaga)
+    yield takeEvery(`${SAVE_COIN}/REQUEST`, safeRequest(saveCoinSaga));
+    yield takeEvery(`${GET_DATA_FORM}/REQUEST`, safeRequest(getDataToFormSaga));
+    yield takeEvery(`${GET_COINS}/REQUEST`, safeRequest(getCoinsSaga));
 }

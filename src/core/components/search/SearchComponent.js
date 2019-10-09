@@ -7,9 +7,11 @@ const SearchComponent = (props) => (
     }}
     render = {
         (formstate) => (
-            <Form className = 'search-wrapper border-radius-l' >
-                <Field className = 'border-radius-m search-input' name = 'text'></Field>
-                <i className="fas fa-search"></i>
+            <Form className = 'search-wrapper m-s' >
+                <Field className = 'search-input icon' name = 'text'></Field>
+                <div className='search-icon'>
+                    <i className="fas fa-search"></i>
+                </div>
             </Form>
         )
         

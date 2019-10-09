@@ -32,7 +32,7 @@ const BottomBar = () =>
                     <div className={styles.sep} />
                     <div><Link to='/playground'>Plac zabaw</Link></div>
                 </div>
-                <div>Written by <a>Apusart</a> 2019</div>
+                <div>Written by <a href='Apusart'>Apusart</a> 2019</div>
             </div>
         </div>
     )

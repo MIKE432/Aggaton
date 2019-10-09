@@ -12,6 +12,7 @@ const initConfig = () => {
 
     config.models = getPaths(paths.models);
     config.routes = getPaths(paths.routes);
+    config.accessLists = getPaths(paths.accessLists);
     return config;
 }
 

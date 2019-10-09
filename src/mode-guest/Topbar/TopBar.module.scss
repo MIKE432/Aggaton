@@ -1,19 +1,34 @@
-@import '../../consts/Colors.module.scss';
+@import '../../core/styles/colors.scss'; 
 
 .Informations {
-    color: green;
-    padding: 10px;
+    color: white;
+    padding: 4px;
     position: sticky;
     transition: .5s ease-in-out;  
     top: 130px;
-    background-color: var(--main-color);
+    background-color: black;
     display: flex;
+    height: 45px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.userName {
+    max-width: 250px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 i {
     transition: .5s ease-in-out;
     
-
     &:hover {
         cursor: pointer;
         color:rgba(255, 253, 163, 0.664)
