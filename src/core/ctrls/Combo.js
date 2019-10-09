@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import styles from './Combo.module.scss';
 
+class Dropdown extends Component {
+
+    constructor( props ) {
+        super( props );
+    }
+    onClick( event ) {
+        console.log( 'Dropdown.onClick' );
+        if( this.props.onApply )
+            this.props.onApply( event );
+    }
+    render() {
+        return (
+            <div className={styles.dropdown} onClick={this.onClick}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
 class Combo extends Component {
 
     constructor( props ) {
@@ -55,8 +74,13 @@ class Combo extends Component {
             if( this.state.isDropdownVisible )
                 this.hideDropdown();
         }
+
+        this.onApply.bind( this ); 
     }
 
+    onApply( event ) {
+        console.log( 'Dropdown.onAppy' );
+    }
     render() {
         return (
         <div ref={this.refComponent} className={styles.component} style={this.props.style}>
@@ -66,9 +90,9 @@ class Combo extends Component {
             {
                 this.state.isDropdownVisible 
                 ?   (
-                    <div className={styles.dropdown}>
+                    <Dropdown onApply={this.onApply}>
                         {this.props.children}
-                    </div>
+                    </Dropdown>
                     )
                 : ( null )
             }
