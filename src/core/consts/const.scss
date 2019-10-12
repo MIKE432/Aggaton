@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 .border-radius-xs {
     border-radius: 1px;
 }
@@ -44,4 +46,13 @@
 
 .m-xxl {
     margin: 15px;
+}
+
+.link {
+    text-decoration: none; 
+    color: white;
+    
+    &:hover {
+        color: $color-desktop-link
+    }
 }

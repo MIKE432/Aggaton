@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import TopBarContent from './TopBarContent'
 import Styles from './TopBar.module.scss'
 import SearchComponent from '../../core/components/search/SearchComponent';
 import { logOutUser, selectUser } from '../../user/redux/userActions';
 import Notifications from './Notifications';
 import PopupMenu from '../../core/ctrls/PopupMenu/PopupMenu';
+
 const mapStateToProps = state => ({
     user: selectUser(state)
 })
@@ -95,7 +97,7 @@ class TopBar extends React.Component {
                             openContent={this.state.isOpen === 'messages'}
                         />
                         <div className={Styles.userName} onClick={this.closeMenu}>
-                            <span>{this.props.user.firstName} {this.props.user.lastName}</span>
+                            <Link to='/user' className='link'><span>{this.props.user.firstName} {this.props.user.lastName}</span></Link>
                         </div>
                         <div className={Styles.icons} onClick={this.props.logOutUser}>
                             <i className="fas fa-sign-out-alt" ></i>
