@@ -18,3 +18,7 @@ exports.getDataToForm = handleErrors(async (req, res) => {
 exports.getCoins = handleErrors(async (req, res) => {
     res.json(await coinService.getCoins());
 })
+
+exports.getExpertCoins = handleErrors(async (req, res) => {
+    res.json(await coinService.getExpertCoins(req.user.id));
+})

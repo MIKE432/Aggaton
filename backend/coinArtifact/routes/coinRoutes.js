@@ -10,4 +10,5 @@ module.exports = function (app) {
     app.route('/api/coin/formdata').get(coinController.getDataToForm);
     app.route('/api/coin/:id').get(coinController.getCoin);
     app.route('/api/coin').get(coinController.getCoins);
+    app.route('/api/expertcoins').get(coinController.getExpertCoins);
 }

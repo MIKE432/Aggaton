@@ -25,10 +25,8 @@ class TopBar extends React.Component {
             isOpen: ''
         }
 
-
         this.TopBarRef = React.createRef();
         this.BottomNavBar = React.createRef();
-        this.ArrowRef = React.createRef();
 
         this.toggleShow = () => {
             if(this.state.isShow) {
@@ -46,7 +44,6 @@ class TopBar extends React.Component {
 
     onClick = () => {
         this.setState({isShow: false});
-        this.ArrowRef.current.classList.add(Styles.ArrowOnHide);
         this.TopBarRef.current.TopBarContentRef.current.classList.add(Styles.onHide);
         this.BottomNavBar.current.classList.add(Styles.InformationsOnHide);
     }
@@ -73,7 +70,7 @@ class TopBar extends React.Component {
                     <TopBarContent ref = {this.TopBarRef} hideTopBar = {this.onClick} hideMenus={this.closeMenu}/>
                     <div className={Styles.Informations} ref = {this.BottomNavBar} >
                         <div className={Styles.icons} onClick={this.closeMenu}>
-                            <i ref = {this.ArrowRef} className="fas fa-bars" onClick = {this.toggleShow} ></i>
+                            <i className="fas fa-bars" onClick = {this.toggleShow} ></i>
                         </div>
                         <div className = 'search-box' onClick={this.closeMenu}>
                             <SearchComponent />
@@ -97,7 +94,8 @@ class TopBar extends React.Component {
                             openContent={this.state.isOpen === 'messages'}
                         />
                         <div className={Styles.userName} onClick={this.closeMenu}>
-                            <Link to='/user' className='link'><span>{this.props.user.firstName} {this.props.user.lastName}</span></Link>
+                            <Link to='/user' className='link'><span>{this.props.user.firstName} {this.props.user.lastName}</span>
+                            </Link>
                         </div>
                         <div className={Styles.icons} onClick={this.props.logOutUser}>
                             <i className="fas fa-sign-out-alt" ></i>

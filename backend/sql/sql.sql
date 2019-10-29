@@ -37,7 +37,8 @@ CREATE TABLE public.artifact_coin (
     currency TEXT,
     country TEXT,
     mint TEXT,
-    grading INTEGER
+    grading INTEGER,
+    created_by INTEGER NOT NULL
 );
 
 CREATE TABLE public.shape (
@@ -77,3 +78,6 @@ ALTER TABLE ONLY public.artifact_coin
 
 ALTER TABLE ONLY public.artifact_coin
     ADD CONSTRAINT artifact_coin_shape_shape_id FOREIGN KEY (shape) REFERENCES public.shape(id);
+
+ALTER TABLE ONLY public.artifact_coin
+    ADD CONSTRAINT created_by_id FOREIGN KEY (created_by) REFERENCES public.userd(id);

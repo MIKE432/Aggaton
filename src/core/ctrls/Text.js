@@ -22,7 +22,13 @@ class Edit extends Component {
         }
     }
 
+    componentDidMount() {
+        if(this.refInput.current.value !== '') {
+            this.handleFocus()
+        }
+    }
     render() {
+
         return (
         <div ref={this.refComponent} className={styles.component} style={this.props.style}>
             <label ref={this.refLabel} className={styles.label} htmlFor={this.props.name}>{this.props.label}</label>

@@ -11,6 +11,7 @@ export function* saveUserSaga(action) {
 }
 
 export function* loginUserSaga(action) {
+    console.log(action);
     const user = yield call(apiCall, '/api/login', 'POST', {}, action.payload);
     yield put(loginUserSuccess(user.data));
     yield put(push('/'));

@@ -15,6 +15,12 @@ exports.getCoins = async () => {
     return coins;
 }
 
+exports.getExpertCoins = async (expertId) => {
+    const coins =  await db.artifactCoin.findAll( { where: { created_by: expertId }, include: [{ model: db.coinRim, as: 'coin_rim' }, { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }]})
+        .map(coin => mapCoinToResponseModel(coin));
+    return coins;
+}
+
 exports.getCoin = async (id) => {
     const coin =  await db.artifactCoin.findByPk(id, { include: [{ model: db.coinRim, as: 'coin_rim' }, { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }]})
     return mapCoinToResponseModel(coin);
@@ -36,7 +42,8 @@ exports.saveCoin = async (coinInfo, expertId) => {
         currency: coinInfo.currency,
         country: coinInfo.country,
         mint: coinInfo.mint,
-        grading: coinInfo.grading
+        grading: coinInfo.grading,
+        created_by: expertId
     })
 }
 
