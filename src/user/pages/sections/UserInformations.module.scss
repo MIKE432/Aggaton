@@ -1,0 +1,32 @@
+.Container {
+    display: flex;
+    flex-direction: row;
+    margin: 30px 30px;
+    width: 100%;
+    height: max-content;
+}
+
+.AvatarContainer {
+    margin: 0 40px 0 0;
+}
+.Avatar {
+    background-color: black;
+    width: 200px;
+    height: 200px;
+}
+
+.UserInformations {
+    margin: 5px 0 0 0;
+}
+
+.Information {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+
+    &:hover i {
+        color: black;
+        cursor: default;
+    }
+}

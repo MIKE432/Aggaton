@@ -6,6 +6,7 @@ import Policy from '../../mode-common/Policy/Policy';
 import Terms from '../../mode-common/Terms/Terms';
 import AddCoinPage from '../../coin/pages/AddCoinPage';
 import CoinList from '../../coin/pages/CoinListPage'
+import UserPage from '../../user/pages/UserPage';
 
 export const allRoutes = () => ({
     guest: [{
@@ -61,6 +62,10 @@ export const allRoutes = () => ({
         exact: true,
         path: '/coin/new',
         component: AddCoinPage
+    }, {
+        exact: true,
+        path: '/user',
+        component: UserPage
     }],
     expert: [{
         exact: true,
@@ -82,5 +87,10 @@ export const allRoutes = () => ({
         exact: true,
         path: '/coin/new',
         component: AddCoinPage
-    }],
+    }, {
+        exact: true,
+        path: '/user',
+        component: UserPage
+    }
+],
 })

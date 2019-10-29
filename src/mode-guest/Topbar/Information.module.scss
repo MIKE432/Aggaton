@@ -1,5 +1,42 @@
 .information {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     max-width: 100%;
+    padding: 5px 3px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.informationBody {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 10px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.informationDate {
+    display: flex;
+    align-items: center;
+    margin: 1px;
+}
+
+.informationDetails {
+    display: flex;
+    flex-direction: column;
+    width:214px;
+}
+
+.informationHeader {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.dateAndType {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
 }

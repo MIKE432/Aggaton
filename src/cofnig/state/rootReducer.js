@@ -10,7 +10,7 @@ export default function(history) {
         router: connectRouter(history),
         user: userReducer,
         rest: restReducer,
-        coin: coinReducer
+        coins: coinReducer
     })
 
     return function rootReducer(state = {}, action) {
