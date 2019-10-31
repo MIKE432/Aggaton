@@ -23,6 +23,13 @@ db.artifactCoin.belongsTo(db.coinShape, { as: 'coin_shape', foreignKey: 'shape' 
 
 db.user.hasMany(db.artifactCoin, { as: 'created_by', foreignKey: 'created_by' });
 db.artifactCoin.belongsTo(db.user, { foreignKey: 'created_by'});
+
+db.coinDepth.hasMany(db.artifactCoin, { as: 'coinDepth', foreignKey: 'coin_depth' });
+db.artifactCoin.belongsTo(db.coinDepth, { as: 'coinDepth', foreignKey: 'coin_depth' });
+
+db.alloy.hasMany(db.artifactCoin, { foreignKey: 'alloy' });
+db.artifactCoin.belongsTo(db.alloy, { as: 'coin_alloy',  foreignKey: 'alloy' });
+
 db.sequelize = sequelize;
 db.sequelizeConstructor = sequelizeConstructor;
 

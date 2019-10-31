@@ -5,6 +5,9 @@ const mapCoinToResponseModel = (coin) => {
     coin['price'] = coin.coin_price;
     coin['rim'] = coin.coin_rim;
     coin['shape'] = coin.coin_shape;
+    delete coin.price;
+    delete coin.rim;
+    delete coin.shape;
 
     return coin;
 }
@@ -28,6 +31,7 @@ exports.getCoin = async (id) => {
 
 exports.saveCoin = async (coinInfo, expertId) => {
     const price = await db.coinPrice.create({ expert_price: coinInfo.price, expert_id: expertId });
+
     return db.artifactCoin.create({
         year: coinInfo.year,
         price: price.dataValues.id,
@@ -50,6 +54,8 @@ exports.saveCoin = async (coinInfo, expertId) => {
 exports.getDataToForm = async () => {
     const rims = await db.coinRim.findAll();
     const shapes = await db.coinShape.findAll();
+    const alloys = await db.alloy.findAll();
+    const coinDepths = await db.coinDepth.findAll();
 
-    return { rims, shapes };
+    return { rims, shapes, alloys, coinDepths };
 }

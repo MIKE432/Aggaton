@@ -59,6 +59,14 @@ class AddCoinForm extends React.Component {
                                     ))
                                 }
                             </ComboBox>
+                            <ComboBox name='alloy' label='Stop' style={{width:'400px'}}>
+                                <option value=""></option>
+                                {
+                                    this.props.dataToForm && this.props.dataToForm.alloys && this.props.dataToForm.alloys.map(alloy => (
+                                        <option key={alloy.id} value={alloy.id}>{alloy.short_name} - {alloy.full_name}</option>
+                                    ))
+                                }
+                            </ComboBox>
                             <ComboBox name='shape' label='Kształt' style={{width:'400px'}}>
                             <option value=""></option>
                             {
@@ -68,8 +76,6 @@ class AddCoinForm extends React.Component {
                             }
                             </ComboBox>
                         </div>
-
-                        <Text name='alloy' label='Stop' style={{width:'400px'}} />
 
                         <Text name='stamp' label='Stempel' style={{width:'400px'}} />
                         <Text name='name' label='Nazwa' style={{width:'400px'}} />
