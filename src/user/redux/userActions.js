@@ -1,4 +1,4 @@
-import { requestAction, requestSuccessAction } from '../../core/rest/actionFactory'
+import { requestAction, requestSuccessAction, clearRest } from '../../core/rest/actionFactory'
 
 export const SAVE_USER = 'SAVE_USER';
 export const LOGIN_USER = 'LOGIN_USER'
@@ -17,3 +17,5 @@ export const getCurrentUserSuccess = (data) => requestSuccessAction(GET_CURRENT_
 
 export const selectUser = store => store.user;
 export const selectUserType = store => store.user.userType;
+
+export const clearExpertCoins = store => clearRest(store, 'GET_EXPERT_COINS')

@@ -15,7 +15,6 @@ class TopBarContent extends React.Component {
                 <Link to = '/' onClick = {this.props.hideTopBar} className={Styles.SingleContent}><i className="fas fa-home fa-2x"></i><span>Strona Główna</span></Link>
                 <Link to='/coin' onClick = {this.props.hideTopBar} className={Styles.SingleContent}><i className="fas fa-coins fa-2x"></i><span>Monety</span></Link>
                 <Link to='/user' onClick = {this.props.hideTopBar} className={Styles.SingleContent}><i className="fas fa-user fa-2x"></i><span>Profil</span></Link>
-           
             </div>
         )
     }

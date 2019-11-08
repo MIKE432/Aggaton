@@ -11,4 +11,6 @@ module.exports = function (app) {
     app.route('/api/coin/:id').get(coinController.getCoin);
     app.route('/api/coin').get(coinController.getCoins);
     app.route('/api/expertcoins').get(coinController.getExpertCoins);
+    app.route('/api/coin/:id/averse').post(coinController.saveAverse);
+    app.route('/api/coin/:id/reverse').post(coinController.saveReverse);
 }

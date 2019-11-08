@@ -41,8 +41,7 @@ class UserPanel extends React.Component {
                     <div>
                         {
                             <UserCoins coins={this.props.coins} />
-                        }
-                        
+                        } 
                     </div>
                 )
             }
@@ -66,8 +65,7 @@ class UserPanel extends React.Component {
                         default
                     </div>
                 )
-            }
-            
+            }  
         }
     }
 
@@ -84,9 +82,12 @@ class UserPanel extends React.Component {
                     <div className='icons' onClick={() => this.toggleSection('userInformations')}>
                         <i className="fas fa-user"></i>
                     </div>
-                    <div className='icons' onClick={() => this.toggleSection('addedCoins')}>
-                        <i className="fas fa-coins"></i>
-                    </div>
+                    {
+                        this.props.user.isExpert ?                     
+                            <div className='icons' onClick={() => this.toggleSection('addedCoins')}>
+                                <i className="fas fa-coins"></i>
+                            </div> : null
+                    }
                     <div className='icons' onClick={() => this.toggleSection('informations')}>
                         <i className="fas fa-info-circle"></i>
                     </div>

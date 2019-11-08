@@ -26,15 +26,6 @@
     align-items: center;
 }
 
-i {
-    transition: .5s ease-in-out;
-    
-    &:hover {
-        cursor: pointer;
-
-    }
-}
-
 .TopBar {
     display: flex;
     flex-direction: column;
@@ -42,6 +33,15 @@ i {
     width: 100%;
     top: 0;
     z-index: 999;
+
+    i {
+        transition: .5s ease-in-out;
+        
+        &:hover {
+            cursor: pointer;
+    
+        }
+    }
 }
 
 .onHide {

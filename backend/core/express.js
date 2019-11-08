@@ -5,6 +5,7 @@ const express = require('express'),
       redis = require('redis'),
       session = require('express-session'),
       redisStore = require('connect-redis')(session),
+      fileUpload = require('express-fileupload'),
       client = redis.createClient(),
       bodyParser = require('body-parser'),
       morgan = require('morgan'),
@@ -33,6 +34,7 @@ const middleWares = (app) => {
         resave: false,
         cookie: { maxAge: 1800000 }
     }));
+    app.use(fileUpload({createParentPath: true}));
     userPassportConfiguration(app, passport);
 }
 
@@ -71,7 +73,6 @@ exports.initExpress = () => {
     initAllowLists();
 
     app.listen(PORT, () => {
-        
         console.log(`App is listening on port ${PORT}!`)
     })
 }

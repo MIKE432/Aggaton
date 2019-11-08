@@ -23,7 +23,6 @@ class FilePickerButton extends React.Component {
             fileSelector.setAttribute('type', 'file');
             fileSelector.setAttribute('multiple', 'multiple');
             fileSelector.setAttribute('name', this.props.name);
-            //fileSelector.setAttribute('value', this.props.value);
 
             return fileSelector;
         }
@@ -31,9 +30,6 @@ class FilePickerButton extends React.Component {
         this.onClick = (event) => {
 
             event.preventDefault();
-            //this.fileSelector.click();
-            console.log(this.fileSelector);
-            console.log(this.refInput.current);
             this.refInput.current.click();
         }
     }

@@ -12,3 +12,15 @@
     box-shadow: 1px 1px 1px #d7ba7d
 }
 
+.triangle {
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: white;
+    position: relative;
+    margin: 0 auto;
+    top: -10px;
+    border-top: 1px solid #d7ba7d;
+    border-left: 1px solid #d7ba7d;
+}
+

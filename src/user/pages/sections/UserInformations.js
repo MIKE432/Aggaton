@@ -13,7 +13,6 @@ const Information = (props) => (
 
 const UserInformations = (props) => {
     const userInfo = props.userInfo;
-    console.log(userInfo);
     return (
         <div className={Styles.Container}>
             <div className={Styles.AvatarContainer}>
@@ -23,7 +22,7 @@ const UserInformations = (props) => {
             <div className={Styles.UserInformations}>
                 <Information title="Imie" value={userInfo.firstName} />
                 <Information title="Nazwisko" value={userInfo.lastName} />
-                <Information title="Dodane monety" value="20" />
+                <Information title="Dodane monety" value={userInfo.coinsCount} />
                 <Information title="Ekspert" value={userInfo.userType === "expert" ? "Tak" : "Nie"} />
                 {
                     userInfo.userType !== "expert" ? <Link >Aplikuj na eksperta</Link> : null

@@ -24,6 +24,8 @@ CREATE TABLE public.artifact_coin (
     id SERIAL PRIMARY KEY NOT NULL,
     averse BYTEA,
     reverse BYTEA,
+    name TEXT,
+    symbol TEXT,
     year DATE,
     price INTEGER,
     estimated_amount INTEGER,

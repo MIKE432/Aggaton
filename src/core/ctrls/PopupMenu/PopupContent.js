@@ -6,6 +6,7 @@ class PopupContent extends React.Component {
         return (
             <>
                 <div className={Styles.popupContent}>
+                <div className={Styles.triangle} />
                 {
                     this.props.popupContent
                 }

@@ -7,8 +7,8 @@ exports.getCoin = handleErrors(async (req, res) => {
 });
 
 exports.saveCoin = handleErrors(async (req, res) => {
-    await coinService.saveCoin(req.body, req.user.id);
-    res.sendStatus(200);
+    const id = (await coinService.saveCoin(req.body, req.user.id)).dataValues.id;
+    res.send({ id });
 })
 
 exports.getDataToForm = handleErrors(async (req, res) => {
@@ -21,4 +21,25 @@ exports.getCoins = handleErrors(async (req, res) => {
 
 exports.getExpertCoins = handleErrors(async (req, res) => {
     res.json(await coinService.getExpertCoins(req.user.id));
+})
+
+exports.saveAverse = handleErrors(async (req, res) => {
+    const coin = await coinService.getCoin(req.params.id);
+    if(coin.createdBy === req.user.id) {
+        await coinService.saveAverse(req.files.file.data, req.params.id);
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(403);
+    }
+})
+
+exports.saveReverse = handleErrors(async (req, res) => {
+    const coin = await coinService.getCoin(req.params.id);
+    console.log(req.files)
+    if(coin.createdBy === req.user.id) {
+        await coinService.saveReverse(req.files.file.data, req.params.id);
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(403);
+    }
 })

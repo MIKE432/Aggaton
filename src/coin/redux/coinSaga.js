@@ -12,7 +12,10 @@ import { SAVE_COIN,
 import { safeRequest } from '../../core/rest/restService';
 
 export function* saveCoinSaga(action) {
-    yield call(apiCall, '/api/coin/new', 'POST', {}, action.payload);
+    const response = yield call(apiCall, '/api/coin/new', 'POST', {}, action.payload.values);
+    yield call(apiCall, `/api/coin/${response.data.id}/averse`, 'POST', {}, action.payload.averse);
+    yield call(apiCall, `/api/coin/${response.data.id}/reverse`, 'POST', {}, action.payload.reverse);
+    
     yield put(saveCoinSuccess())
 }
 

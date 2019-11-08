@@ -1,11 +1,11 @@
 const
     passport = require('passport'),
     userService = require('../services/userService'),
-    handleErrors = require('../../core/config/errors').handleErrors
+    handleErrors = require('../../core/config/errors').handleErrors,
+    coinService = require('../../coinArtifact/service/coinService')
 
 exports.saveUser = handleErrors(async (req, res, next) => {
         const user = await userService.saveUser(req.body);
-        console.log('xsssxs')
         delete user.password;
         delete user.salt;
         req.login(user, (err) => {
@@ -35,7 +35,9 @@ exports.login = (req, res, next) => {
 }
 
 exports.getCurrentUser = handleErrors(async (req, res) => {
-    res.json(req.user)
+    const user = req.user;
+    user.coinsCount = await coinService.getExpertCoinsCount(user.id);
+    res.json(user)
 })
 
 exports.logout = handleErrors(async (req, res) => {

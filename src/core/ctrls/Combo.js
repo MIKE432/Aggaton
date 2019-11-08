@@ -7,7 +7,6 @@ class Dropdown extends Component {
         super( props );
     }
     onClick( event ) {
-        console.log( 'Dropdown.onClick' );
         if( this.props.onApply )
             this.props.onApply( event );
     }
@@ -79,7 +78,6 @@ class Combo extends Component {
     }
 
     onApply( event ) {
-        console.log( 'Dropdown.onAppy' );
     }
     render() {
         return (

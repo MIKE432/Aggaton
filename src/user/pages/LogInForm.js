@@ -20,7 +20,6 @@ const mapDispatchToProps = dispatch => ({
 class LogInForm extends React.Component {
 
     onSubmit = (formikValues, {resetForm}) => {
-        console.log('xd');
         const values = { ...formikValues }
         values.password = Crypto.SHA256(values.password).toString();
         this.props.loginUser(values);

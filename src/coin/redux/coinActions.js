@@ -1,4 +1,4 @@
-import { requestAction, requestSuccessAction, selectRest } from '../../core/rest/actionFactory'
+import { requestAction, requestSuccessAction, selectRest, clearRest } from '../../core/rest/actionFactory'
 
 export const SAVE_COIN = 'SAVE_COIN';
 export const GET_COIN = 'GET_COIN';
@@ -23,3 +23,6 @@ export const getCoinSuccess = data => requestSuccessAction(GET_COIN, data);
 export const selectDataToForm = state => selectRest(state, GET_DATA_FORM);
 export const selectCoins = state => selectRest(state, GET_COINS);
 export const selectExpertCoins = state => selectRest(state, GET_EXPERT_COINS);
+
+
+export const clearCoins = (state) => clearRest(state, 'GET_COINS')
