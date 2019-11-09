@@ -79,19 +79,19 @@ class UserPanel extends React.Component {
         return (
             <div className={Styles.userPanel}>
                 <div className={Styles.userBar}>
-                    <div className='icons' onClick={() => this.toggleSection('userInformations')}>
+                    <div className='icons hover' onClick={() => this.toggleSection('userInformations')}>
                         <i className="fas fa-user"></i>
                     </div>
                     {
                         this.props.user.isExpert ?                     
-                            <div className='icons' onClick={() => this.toggleSection('addedCoins')}>
+                            <div className='icons hover' onClick={() => this.toggleSection('addedCoins')}>
                                 <i className="fas fa-coins"></i>
                             </div> : null
                     }
-                    <div className='icons' onClick={() => this.toggleSection('informations')}>
+                    <div className='icons hover' onClick={() => this.toggleSection('informations')}>
                         <i className="fas fa-info-circle"></i>
                     </div>
-                    <div className='icons' onClick={() => this.toggleSection('settings')}>
+                    <div className='icons hover' onClick={() => this.toggleSection('settings')}>
                         <i className="fas fa-wrench"></i>
                     </div>
                 </div>

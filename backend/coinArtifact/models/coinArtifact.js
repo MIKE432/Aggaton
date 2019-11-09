@@ -7,6 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         averse: { type: DataTypes.BLOB, allowNull: true },
         reverse: { type: DataTypes.BLOB, allowNull: true },
+        name: { type: DataTypes.TEXT, allowNull: true },
+        about: { type: DataTypes.TEXT, allowNull: true },
         year: { type: DataTypes.DATE, allowNull: true },
         estimated_amount: { type: DataTypes.INTEGER, allowNull: true },
         weight: { type: DataTypes.DECIMAL, allowNull: true },

@@ -41,8 +41,18 @@ CREATE TABLE public.artifact_coin (
     mint TEXT,
     grading INTEGER,
     coin_depth INTEGER,
-    created_by INTEGER NOT NULL
+    created_by INTEGER NOT NULL,
+    about TEXT
 );
+
+CREATE TABLE public.notification (
+    id SERIAL PRIMARY KEY NOT NULL,
+    type TEXT,
+    name TEXT,
+    about TEXT,
+    owner INTEGER NOT NULL
+);
+
 
 CREATE TABLE public.shape (
     id SERIAL PRIMARY KEY NOT NULL,
@@ -126,3 +136,6 @@ ALTER TABLE ONLY public.artifact_coin
 
 ALTER TABLE ONLY public.artifact_coin
     ADD CONSTRAINT alloy_id FOREIGN KEY (alloy) REFERENCES public.alloy(id);
+
+ALTER TABLE ONLY public.notification
+    ADD CONSTRAINT owner_id FOREIGN KEY (owner) REFERENCES public.userd(id);

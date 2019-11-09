@@ -7,6 +7,24 @@ exports.accessList = () => {
         {
             roles: ['expert'],
             allows: [{
+                resources: '/api/coin/formdata',
+                permissions: '*'
+            }, {
+                resources: '/api/coin/:id',
+                permissions: '*'
+            }, {
+                resources: '/api/coin',
+                permissions: '*'
+            }, {
+                resources: '/api/expertcoins',
+                permissions: '*'
+            }, {
+                resources: '/api/coin/:id/reverse',
+                permissions: '*'
+            }, {
+                resources: '/api/coin/:id/averse',
+                permissions: '*'
+            }, {
                 resources: '/api/coin/new',
                 permissions: '*'
             }]

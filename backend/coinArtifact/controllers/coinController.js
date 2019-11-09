@@ -26,19 +26,24 @@ exports.getExpertCoins = handleErrors(async (req, res) => {
 exports.saveAverse = handleErrors(async (req, res) => {
     const coin = await coinService.getCoin(req.params.id);
     if(coin.createdBy === req.user.id) {
-        await coinService.saveAverse(req.files.file.data, req.params.id);
-        res.sendStatus(200);
+        if(req.files) {
+            await coinService.saveAverse(req.files.file.data, req.params.id);
+            res.sendStatus(200);
+        }
     } else {
         res.sendStatus(403);
     }
 })
 
+
 exports.saveReverse = handleErrors(async (req, res) => {
     const coin = await coinService.getCoin(req.params.id);
-    console.log(req.files)
     if(coin.createdBy === req.user.id) {
-        await coinService.saveReverse(req.files.file.data, req.params.id);
-        res.sendStatus(200);
+        if(req.files) {
+            await coinService.saveReverse(req.files.file.data, req.params.id);
+            res.sendStatus(200);
+        }
+
     } else {
         res.sendStatus(403);
     }

@@ -53,31 +53,37 @@ class CoinPhotoFilePicker extends React.Component {
     }
 }
 
-const DummyCoin = (props) => (
-    <div className={styles.DummyCoin}>
-        <div className={styles.AddPhoto} onClick={props.onclick}>
-            <i className="fas fa-plus fa-2x"></i>
+
+
+const DummyCoin = (props) => {
+
+
+    return (
+        <div className={styles.DummyCoin}>
+            <div className={styles.AddPhoto} onClick={props.onclick}>
+                <i className="fas fa-plus fa-2x"></i>
+            </div> 
+            <div className={styles.informations}>
+                <div>
+                    <span>Rok wydania: </span>
+                    <i>{`${props.coin.year}`}</i>
+                </div>
+                <div>
+                    <span>Aktualna cena: </span>
+                    <i>{props.coin.coin_price.expert_price}</i>
+                </div>
+                <div>
+                    <span>Kraj: </span>
+                    <i>{props.coin.country}</i>
+                </div>
+                <div>
+                    <span>Mennica: </span>
+                    <i>{props.coin.mint}</i>
+                </div>
+            </div>
         </div>
-        <div className={styles.informations}>
-            <div>
-                <span>Rok wydania: </span>
-                <i>{`${props.coin.year}`}</i>
-            </div>
-            <div>
-                <span>Aktualna cena: </span>
-                <i>{props.coin.coin_price.expert_price}</i>
-            </div>
-            <div>
-                <span>Kraj: </span>
-                <i>{props.coin.country}</i>
-            </div>
-            <div>
-                <span>Mennica: </span>
-                <i>{props.coin.mint}</i>
-            </div>
-        </div>
-    </div>
-)
+    )
+}
 
 const CoinAddPhotoForm = (props) => (
     <div className={styles.AddCoinPhotoForm}>
@@ -146,6 +152,7 @@ class AddCoinForm extends React.Component {
                     name: '',
                     year: '',
                     price: '',
+                    name: '',
                     estimatedAmount: '',
                     weight: '',
                     diameter: '',
@@ -159,7 +166,8 @@ class AddCoinForm extends React.Component {
                     country: '',
                     grading: '',
                     coinDepth: '',
-                    symbol: ''
+                    symbol: '',
+                    about: ''
                 }}
                 render={(formState) => (
                     <>
@@ -184,6 +192,7 @@ class AddCoinForm extends React.Component {
                                         mint: formState.values.mint
                                         
                                         }} onclick={this.openAddPhotoForm}
+                                        averse={this.state.averse}
                                     />
 
                                     <Button mode='primary' type='submit' style={{width:'200px'}}>Dodaj monetę</Button>

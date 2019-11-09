@@ -2,7 +2,6 @@ const
     db = require('../../core/config/sequalize');
 
 const mapCoinToResponseModel = (coinInfo) => {
-
     return {
         averse: coinInfo.averse,
         reverse: coinInfo.reverse,
@@ -23,13 +22,15 @@ const mapCoinToResponseModel = (coinInfo) => {
         mint: coinInfo.mint,
         grading: coinInfo.grading,
         createdBy: coinInfo.created_by,
-        coinDepth: coinInfo.coin_depth
+        coinDepth: coinInfo.coinDepth,
+        about: coinInfo.about,
+        name: coinInfo.name
     };
 }
 
 exports.getCoins = async () => {
     const coins =  await db.artifactCoin.findAll( { include: [{ model: db.coinRim, as: 'coin_rim' }, 
-    { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }, { model: db.alloy, as: 'coin_alloy'}]})
+    { model: db.coinShape, as: 'coin_shape' }, { model: db.coinPrice, as: 'coin_price' }, { model: db.alloy, as: 'coin_alloy'},{ model: db.coinDepth, as: 'coinDepth'}]})
         .map(coin => mapCoinToResponseModel(coin));
     return coins;
 }
@@ -38,7 +39,8 @@ exports.getExpertCoins = async (expertId) => {
     const coins =  await db.artifactCoin.findAll( { where: { created_by: expertId }, include: [{ model: db.coinRim, as: 'coin_rim' },
      { model: db.coinShape, as: 'coin_shape' }, 
      { model: db.coinPrice, as: 'coin_price' },
-     { model: db.alloy, as: 'coin_alloy'}]})
+     { model: db.alloy, as: 'coin_alloy'},
+     { model: db.coinDepth, as: 'coinDepth'}]})
         .map(coin => mapCoinToResponseModel(coin));
     return coins;
 }
@@ -52,7 +54,8 @@ exports.getCoin = async (id) => {
     const coin =  await db.artifactCoin.findByPk(id, { include: [{ model: db.coinRim, as: 'coin_rim' }, 
     { model: db.coinShape, as: 'coin_shape' }, 
     { model: db.coinPrice, as: 'coin_price' }, 
-    { model: db.alloy, as: 'coin_alloy'}]})
+    { model: db.alloy, as: 'coin_alloy'}, 
+    { model: db.coinDepth, as: 'coinDepth'}]})
     return mapCoinToResponseModel(coin);
 }
 
@@ -74,7 +77,10 @@ exports.saveCoin = async (coinInfo, expertId) => {
         country: coinInfo.country,
         mint: coinInfo.mint,
         grading: coinInfo.grading,
-        created_by: expertId
+        created_by: expertId,
+        coin_depth: coinInfo.coinDepth,
+        about: coinInfo.about,
+        name: coinInfo.name
     })
 }
 
