@@ -36,7 +36,8 @@ exports.login = (req, res, next) => {
 
 exports.getCurrentUser = handleErrors(async (req, res) => {
     const user = req.user;
-    user.coinsCount = await coinService.getExpertCoinsCount(user.id);
+    if(user)
+        user.coinsCount = await coinService.getExpertCoinsCount(user.id);
     res.json(user)
 })
 
