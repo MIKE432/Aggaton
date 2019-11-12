@@ -9,16 +9,16 @@ class Notifications extends React.Component {
                 <div className={Styles.notificationsContainer}>
                     <h4 className={Styles.header}>Informacje</h4>
                     <div>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o raku' details='rak to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o smoku' details='smok to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o rybie' details='ryba to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="danger" information='Informacja o raku' details='rak to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="warning" information='Informacja o smoku' details='smok to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="success" information='Informacja o rybie' details='ryba to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="success" information='Informacja o człowieku' details='człowiek to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="danger" information='Informacja o człowieku' details='człowiek to istota...'/>
                         <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="warning" information='Informacja o człowieku' details='człowiek to istota...'/>
                         <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
-                        <Information date='24-01-19' informationType='wazna' information='Informacja o człowieku' details='człowiek to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="danger" information='Informacja o człowieku' details='człowiek to istota...'/>
+                        <Information date='24-01-19' informationType='wazna' type="success" information='Informacja o człowieku' details='człowiek to istota...'/>
                     </div>
                 </div>
             </>

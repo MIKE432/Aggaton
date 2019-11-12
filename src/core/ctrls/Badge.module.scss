@@ -1,0 +1,24 @@
+@mixin set-badge-style( $bk-color ) {
+    width: min-content;
+    height: min-content;
+    border-radius: 3px;
+    padding: 0 6px;
+    background-color: $bk-color;
+    margin: 1px;
+}
+
+.default {
+    @include set-badge-style(blue)
+}
+
+.danger {
+    @include set-badge-style(red)
+}
+
+.warning {
+    @include set-badge-style(orange)
+}
+
+.success {
+    @include set-badge-style(green)
+}

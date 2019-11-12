@@ -78,7 +78,7 @@ class TopBar extends React.Component {
                         <PopupMenu
                             triggerComponent={(
                                 <div className={Styles.icons} onClick={() => this.toggleMenu('notifications')}>
-                                    <i className='fas fa-bell' ></i>
+                                    <i className='fas fa-comment' ></i>
                             </div>)}
                             popupContent={(<div></div>)}
                             close={this.closeMenu}
@@ -87,7 +87,7 @@ class TopBar extends React.Component {
                         <PopupMenu 
                             triggerComponent={(
                                 <div className={Styles.icons} onClick={() => this.toggleMenu('messages')}>
-                                    <i className='fas fa-comment' ></i>
+                                    <i className='fas fa-bell' ></i>
                             </div>)} 
                             popupContent={(<Notifications />)}
                             close={this.closeMenu}

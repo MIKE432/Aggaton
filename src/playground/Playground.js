@@ -10,6 +10,7 @@ import Check from '../core/ctrls/Check';
 import Radio from '../core/ctrls/Radio';
 import Toggle from '../core/ctrls/Toggle';
 import FilePicker, {FilePickerButton, FilePickerTile} from '../core/ctrls/FilePicker'
+import Badge from '../core/ctrls/Badge';
 
 const width = {maxWidth:'550px', width:'550px'};
 const formStyle = {maxWidth:'550px', padding:'20px'};
@@ -108,6 +109,10 @@ export const Playground = () => (
                     </div>
                 </div>
             </div>
+            <Badge type="danger">Danger</Badge>
+            <Badge type="warning">Warning</Badge>
+            <Badge type="success">Success</Badge>
+            <Badge>Default</Badge>
             <h2>This is h2</h2>
             <h3>This is h3</h3>
             <h4>This is h4</h4>
