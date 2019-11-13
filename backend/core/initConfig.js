@@ -9,6 +9,7 @@ const getPaths = (pattern) => {
 const initConfig = () => {
     
     let config = {}
+    console.log(paths)
 
     config.models = getPaths(paths.models);
     config.routes = getPaths(paths.routes);
