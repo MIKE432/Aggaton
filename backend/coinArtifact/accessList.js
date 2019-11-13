@@ -28,6 +28,15 @@ exports.accessList = () => {
                 resources: '/api/coin/new',
                 permissions: '*'
             }]
+        },{
+            roles: ['user'],
+            allows: [{
+                resources: '/api/coin/:id',
+                permissions: '*'
+            }, {
+                resources: '/api/coin',
+                permissions: '*'
+            }]
         }
     ])
 }
