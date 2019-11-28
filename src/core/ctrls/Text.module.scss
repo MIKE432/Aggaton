@@ -7,15 +7,13 @@
     
     @include nca-ctrl( $font-edit-size );
     @include nca-ctrl-for-tiny-desktop;
+
 }
 
 .editFocus {
     border-color: $color-btn-dkshadow;
 }
 
-.required {
-	
-}
 
 .required::after {
 	color: red;

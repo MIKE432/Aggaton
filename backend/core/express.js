@@ -18,7 +18,6 @@ const express = require('express'),
 const middleWares = (app) => {
     app.use(cors());
     app.use(bodyParser.json('type'));
-    console.log();
     app.use(express.static(path.join(__dirname, '../../build')));
     app.use(morgan('dev'))
     app.use(cookieParser())

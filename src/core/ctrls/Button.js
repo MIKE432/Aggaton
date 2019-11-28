@@ -7,6 +7,9 @@ class Button extends Component {
     constructor( props ) {
 
         super( props );
+
+        this.buttonRef = React.createRef();
+
         this.className 
             = this.props.mode==='primary' ? styles.primary
             : this.props.mode==='secondary' ? styles.secondary
@@ -28,10 +31,16 @@ class Button extends Component {
 
         }
     }
+
+    componentDidMount() {
+        if(this.props.style) {
+            this.buttonRef.current.classList.add(this.props.style)
+        }
+    }
     
     render() {
         return (
-            <button className={this.className} disabled={this.props.disabled} {...this.props} onClick={this.onClick} >{this.props.children}</button>
+            <button ref={this.buttonRef} className={this.className} disabled={this.props.disabled} onClick={this.onClick} >{this.props.children}</button>
         );
     }    
 }

@@ -13,9 +13,16 @@ module.exports = {
 
     },
     paths: {
-        routes: '*/routes/*.js',
-        models: '*/models/*.js',
-        accessLists: '*/accessList.js'
+        prodPaths: {
+            routes: '*/routes/*.js',
+            models: '*/models/*.js',
+            accessLists: '*/accessList.js'
+        },
+        devPaths: {
+            routes: 'backend/*/routes/*.js',
+            models: 'backend/*/models/*.js',
+            accessLists: 'backend/*/accessList.js'
+        }
     },
     redis: {
         host: 'localhost', 

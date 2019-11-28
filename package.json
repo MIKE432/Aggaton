@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start:client": "react-scripts start",
-    "start:server": " node backend/index.js",
+    "start:server": "NODE_ENV=dev node backend/index.js",
     "start": "concurrently --handle-input \"yarn start:server\" \"yarn start:client\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,7 +1,21 @@
+@import '../../core/styles/media.scss';
+
+.text {
+    width:80%; 
+
+}
+
 .sign-in-form {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 450px;
+
+    @include for-phone-only {
+        width: 100%; 
+    }
+
+    align-items: center;
+    justify-content: center;
 }
 
 .sign-in-page {
@@ -16,4 +30,10 @@
     h1 {
         text-align: center;
     }
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    
 }

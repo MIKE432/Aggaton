@@ -1,0 +1,17 @@
+@import '../../core/styles/media.scss';
+
+.text {
+    width:100%; 
+}
+
+.terms {
+    display: flex;
+    padding-top: 15px;
+    align-items: start;
+    width: 100%
+}
+
+.termsContainer {
+    align-items: center;
+    justify-content: center;
+}

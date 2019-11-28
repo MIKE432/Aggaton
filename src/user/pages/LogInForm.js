@@ -40,11 +40,13 @@ class LogInForm extends React.Component {
                     validationSchema={logInFormSchema()}
                     render = {
                         (formState) => (
-                            <Form className = 'sign-in-form'>
-                                <Text name = 'email' label = 'E-mail' />
-                                <Text name = 'password' label = 'Hasło' type = 'password'/>
-                                <Button type="submit">Zaloguj się!</Button>
-                            </Form>
+                            <div className="form-container">
+                                <Form className = 'sign-in-form'>
+                                    <Text name = 'email' label = 'E-mail' />
+                                    <Text name = 'password' label = 'Hasło' type = 'password'/>
+                                    <Button type="submit">Zaloguj się!</Button>
+                                </Form>
+                            </div>
                         )
                     }
                 

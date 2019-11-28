@@ -26,11 +26,14 @@ class Edit extends Component {
         if(this.refInput.current.value !== '') {
             this.handleFocus()
         }
+        if(this.props.style) {
+            this.refComponent.current.classList.add(this.props.style)
+        }
     }
     render() {
-
+        console.log(this.props.style)
         return (
-        <div ref={this.refComponent} className={styles.component} style={this.props.style}>
+        <div ref={this.refComponent} className={styles.component} >
             <label ref={this.refLabel} className={styles.label} htmlFor={this.props.name}>{this.props.label}</label>
             <Field innerRef={this.refInput} className={styles.value} type={this.props.type} name={this.props.name} onFocus={this.handleFocus} onBlur={this.handleBlur} />
         </div>

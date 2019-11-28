@@ -49,13 +49,13 @@ export const Playground = () => (
                         <Combo name='gender' label='płeć' style={{width:'200px'}}>
                             Female<br/>Male<br/>Custom
                         </Combo>
-                        <Text name='firstname' label='imię' style={{width:'200px'}} />
-                        <Text name='lastname' label='nazwisko' style={{width:'200px'}} />
+                        <Text name='firstname' label='imię'/>
+                        <Text name='lastname' label='nazwisko' />
                     </div>
                     <div style={buttonGroupStyle}>
-                        <Text name='email' label='email' style={{width:'200px'}} />
-                        <Text name='pass' label='hasło' type='password' style={{width:'200px'}}/>
-                        <Button mode='form' type='submit' style={{width:'200px'}}>Button on form</Button>
+                        <Text name='email' label='email' />
+                        <Text name='pass' label='hasło' type='password' />
+                        <Button mode='form' type='submit' >Button on form</Button>
                     </div>
                     <div style={buttonGroupStyle}>
                         <Check name='pass' label='hasło' type='password' style={{width:'200px'}}>
@@ -102,10 +102,10 @@ export const Playground = () => (
                         <ErrorBox label='email' popup={false} visible={true}>Podaj prawidłowy email - <a href='#chlopie'>chłopie</a> :) adsfasd fas<br /><b>Twój system</b></ErrorBox>
                     </div>
                     <div style={buttonGroupStyle}>
-                        <Button mode='button' type='submit' style={{width:'100px'}}>Normal</Button>
-                        <Button mode='warning' type='submit' style={{width:'100px'}}>Warning</Button>
-                        <Button mode='secondary' type='submit' style={{width:'100px'}}>Secondary</Button>
-                        <Button mode='primary' type='submit' style={{width:'100px'}}>Primary</Button>
+                        <Button mode='button' type='submit' >Normal</Button>
+                        <Button mode='warning' type='submit' >Warning</Button>
+                        <Button mode='secondary' type='submit' >Secondary</Button>
+                        <Button mode='primary' type='submit' >Primary</Button>
                     </div>
                 </div>
             </div>

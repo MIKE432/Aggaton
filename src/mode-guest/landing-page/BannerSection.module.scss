@@ -1,2 +1,34 @@
 @import '../../core/styles/colors.scss';
 @import '../../core/styles/fonts.scss';
+@import '../../core/styles/media.scss';
+
+.buttonsContainer {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+    @include for-phone-only {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    @include for-desktop {
+        flex-direction: row;
+    }
+
+}
+
+.button {
+    margin: 20px;
+    width: 40%;
+
+    @include for-phone-only {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    @include for-desktop {
+        width: 350px;
+    }
+}
