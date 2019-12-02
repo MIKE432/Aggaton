@@ -72,6 +72,10 @@ exports.initExpress = () => {
     initRouters(app);
     initAllowLists();
 
+    app.route('/*').get((req, res) => {
+        return res.sendFile(path.join(__dirname, '../../build/index.html'));
+    })
+
     app.listen(PORT, () => {
         console.log(`App is listening on port ${PORT}!`)
     })
