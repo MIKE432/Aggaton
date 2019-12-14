@@ -9,7 +9,6 @@ const getPaths = (pattern) => {
 const initConfig = () => {
     
     let config = {}
-    console.log(paths)
     if(process.env.NODE_ENV === "dev") {
         config.models = getPaths(paths.devPaths.models);
         config.routes = getPaths(paths.devPaths.routes);

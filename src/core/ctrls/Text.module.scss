@@ -10,10 +10,19 @@
 
 }
 
+.errorStyle {
+    border: 1px solid red;
+}
+
 .editFocus {
     border-color: $color-btn-dkshadow;
 }
 
+.errorBox {
+    margin: 15px 0;
+    height: max-content;
+    width: 75%;
+}
 
 .required::after {
 	color: red;
