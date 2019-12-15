@@ -4,7 +4,9 @@ const
     path = require('path'),
     paths = require('../initConfig');
 
-const sequelize = new sequelizeConstructor(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);
+
+const sequelize = new sequelizeConstructor(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);;
+
 const db = {};
 
 paths.models.map(modelPath => {
