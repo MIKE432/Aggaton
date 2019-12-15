@@ -18,7 +18,7 @@
 
         background-color: get-color-3d-light( $bk-color );
         box-shadow: 0px 8px 10px -5px get-color-3d-shadow( $bk-color );
-        }
+    }
     &:focus {
 
         background-color: get-color-3d-light( $bk-color );
@@ -48,6 +48,13 @@
     color: inherit;
 }
 
+.disableClass {
+    $color-disable-face: lighten($color-btn-face, 10%);
+    $color-disable-text: lighten($color-btn-text, 20%);
+    @include set-button-style( $color-disable-face, $color-disable-text );;
+    pointer-events: none;
+}
+
 .warning {
     @include set-button-style( $color-warning, $color-warning-text );
 }
@@ -56,10 +63,6 @@
     @include set-button-style( #d7ba7d, black );
     background-color: inherit;
     border-radius: 0;
-}
-
-.disabled {
-    @include set-button-style( #ddd, white );
 }
 
 .lp {

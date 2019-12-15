@@ -39,8 +39,9 @@ class Button extends Component {
     }
     
     render() {
+
         return (
-            <button ref={this.buttonRef} className={this.className} disabled={this.props.disabled} onClick={this.onClick} >{this.props.children}</button>
+            <button ref={this.buttonRef} type={this.props.type} className={this.className} disabled={this.props.disabled} onClick={this.onClick} >{this.props.children}</button>
         );
     }    
 }
