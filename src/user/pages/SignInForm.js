@@ -16,10 +16,10 @@ const lastNameError = { header: 'Podaj prawidłowe nazwisko', href: 'asd', hrefT
 
 
 const signInFormSchema = () => yup.object().shape({
-    email: yup.string().email(emailError),
-    password: yup.string().min(5, passwordError),
-    firstName: yup.string().min(2, firstNameError),
-    lastName: yup.string().required(lastNameError),
+    email: yup.string().email(emailError).required(emailError),
+    password: yup.string().min(5, passwordError).required(passwordError),
+    firstName: yup.string().min(2, firstNameError).required(firstNameError),
+    lastName: yup.string(lastNameError).required(lastNameError),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -60,10 +60,38 @@ class SignInForm extends React.Component {
                     (formState) => (
                         <div className="form-container">
                             <Form className='sign-in-form'>
-                                <Text name='firstName'error={formState.errors.firstName} label='Imię' type='text' style={Styles.text}/>
-                                <Text name='lastName'error={formState.errors.lastName} label='Nazwisko' type='text' style={Styles.text}/>
-                                <Text name='email'error={formState.errors.email} label='E-mail' type='email' style={Styles.text}/>
-                                <Text name='password' error={formState.errors.password} label='Hasło' type='password' style={Styles.text}/>
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, firstName: true })} 
+                                    name='firstName' 
+                                    error={formState.touched.firstName && formState.errors.firstName} 
+                                    label='Imię' 
+                                    type='text' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, lastName: true })} 
+                                    name='lastName' 
+                                    error={formState.touched.lastName && formState.errors.lastName} 
+                                    label='Nazwisko' 
+                                    type='text' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, email: true })} 
+                                    name='email' 
+                                    error={formState.touched.email && formState.errors.email} 
+                                    label='E-mail' 
+                                    type='email' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, password: true })} 
+                                    name='password' 
+                                    error={formState.touched.password && formState.errors.password} 
+                                    label='Hasło' 
+                                    type='password' 
+                                    style={Styles.text}
+                                />
                                 <div className={Styles.termsContainer}>
                                     <div className={Styles.terms}>
                                         <Check>
@@ -88,7 +116,7 @@ class SignInForm extends React.Component {
                                 {
                                     console.log(formState)
                                 }
-                                <Button disabled={!formState.isValid}type="submit">Zarejestruj się!</Button>
+                                <Button type="submit">Zarejestruj się!</Button>
                             </Form>
                         </div>
                     )

@@ -47,7 +47,7 @@ class LogInForm extends React.Component {
                                 <Form className = 'sign-in-form'>
                                     <Text error={formState.errors.email} label='Imię' name = 'email' label = 'E-mail' />
                                     <Text error={formState.errors.password} label='Imię' name = 'password' label = 'Hasło' type = 'password'/>
-                                    <Button disabled={!formState.isValid} type="submit">Zaloguj się!</Button>
+                                    <Button type="submit">Zaloguj się!</Button>
                                 </Form>
                             </div>
                         )

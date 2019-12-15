@@ -24,6 +24,7 @@ class Edit extends Component {
         this.handleBlur = () => {
             this.refComponent.current.classList.remove(styles.editFocus);
             this.setState({isFocused: false})
+            this.props.handleTouch && this.props.handleTouch()
             if( !this.refInput.current.value )
                 this.refLabel.current.classList.remove(styles.labelFocus);
         }
@@ -39,13 +40,14 @@ class Edit extends Component {
         }
     }
 
-
     render() {
-        this.refInput.current && this.refInput.current.value === '' && this.refComponent.current.classList.remove(styles.errorStyle)
-        !this.state.isFocused && this.props.error && this.refComponent.current.classList.add(styles.errorStyle)
+        
         
         return (
         <>
+        {
+            (this.refComponent.current && this.refComponent.current.classList) ? (this.props.error ? this.refComponent.current.classList.add(styles.errorStyle) : this.refComponent.current.classList.remove(styles.errorStyle)) : null
+        }
             <div ref={this.refComponent} className={styles.component} >
                 {
                     this.props.error && this.state.isFocused &&
