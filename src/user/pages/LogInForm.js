@@ -8,9 +8,12 @@ import { loginUser } from '../redux/userActions'
 import * as yup from 'yup';
 
 
+const emailError = { header: 'Podaj prawidłowy Email -', href: 'asd', hrefText:'chlopie', explaining: 'Potrzebujesz @' }
+const passwordError = { header: 'Podaj swoje hasło -', href: 'asd', hrefText:'chlopie' }
+
 const logInFormSchema = () => yup.object().shape({
-    email: yup.string().email().required('dsadsadsadsa'),
-    password: yup.string().min(5)
+    email: yup.string().email(emailError),
+    password: yup.string().required(passwordError)
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -42,8 +45,8 @@ class LogInForm extends React.Component {
                         (formState) => (
                             <div className="form-container">
                                 <Form className = 'sign-in-form'>
-                                    <Text name = 'email' label = 'E-mail' />
-                                    <Text name = 'password' label = 'Hasło' type = 'password'/>
+                                    <Text error={formState.errors.email} label='Imię' name = 'email' label = 'E-mail' />
+                                    <Text error={formState.errors.password} label='Imię' name = 'password' label = 'Hasło' type = 'password'/>
                                     <Button type="submit">Zaloguj się!</Button>
                                 </Form>
                             </div>

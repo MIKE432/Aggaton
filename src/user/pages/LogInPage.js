@@ -4,7 +4,6 @@ import LogInForm from './LogInForm'
 import BannerHolder from '../../mode-guest/landing-page/BannerHolder/BannerHolder'
 import Logo from '../../mode-guest/landing-page/Logo/Logo'
 
-
 const LogInPage = () => {
     return (
         <BannerHolder>

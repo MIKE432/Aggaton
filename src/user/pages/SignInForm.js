@@ -7,12 +7,34 @@ import Button from '../../core/ctrls/Button';
 import Check from '../../core/ctrls/Check';
 import { saveUser } from '../redux/userActions'
 import Styles from './SignInForm.module.scss'
+import * as yup from 'yup'
+
+const emailError = { header: 'Podaj prawidłowy Email -', href: 'asd', hrefText:'chlopie', explaining: 'Potrzebujesz @' }
+const passwordError = { header: 'Podaj mocne hasło -', href: 'asd', hrefText:'chlopie', explaining: 'Przynajmniej 5 znaków' }
+const firstNameError = { header: 'Podaj prawidłowe imię', href: 'asd', hrefText:'chlopie', explaining: '' }
+const lastNameError = { header: 'Podaj prawidłowe nazwisko', href: 'asd', hrefText:'chlopie', explaining: '' }
+
+
+const signInFormSchema = () => yup.object().shape({
+    email: yup.string().email(emailError).required(emailError),
+    password: yup.string().min(5, passwordError).required(passwordError),
+    firstName: yup.string().min(2, firstNameError).required(firstNameError),
+    lastName: yup.string(lastNameError).required(lastNameError),
+})
 
 const mapDispatchToProps = dispatch => ({
     saveUser: user => dispatch(saveUser(user))
 })
 
 class SignInForm extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            isAfterSubmit: false
+        }
+    }
 
     onSubmit = (formikValues, { resetForm }) => {
         const values = { ...formikValues }
@@ -33,14 +55,43 @@ class SignInForm extends React.Component {
                     email: '',
                     password: ''
                 }}
+                validationSchema={signInFormSchema()}
                 render = {
                     (formState) => (
                         <div className="form-container">
                             <Form className='sign-in-form'>
-                                <Text name='firstName' label='Imię' type='text' style={Styles.text}/>
-                                <Text name='lastName' label='Nazwisko' type='text' style={Styles.text}/>
-                                <Text name='email' label='E-mail' type='email' style={Styles.text}/>
-                                <Text name='password' label='Hasło' type='password' style={Styles.text}/>
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, firstName: true })} 
+                                    name='firstName' 
+                                    error={formState.touched.firstName && formState.errors.firstName} 
+                                    label='Imię' 
+                                    type='text' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, lastName: true })} 
+                                    name='lastName' 
+                                    error={formState.touched.lastName && formState.errors.lastName} 
+                                    label='Nazwisko' 
+                                    type='text' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, email: true })} 
+                                    name='email' 
+                                    error={formState.touched.email && formState.errors.email} 
+                                    label='E-mail' 
+                                    type='email' 
+                                    style={Styles.text}
+                                />
+                                <Text 
+                                    handleTouch={() => formState.setTouched({ ...formState.touched, password: true })} 
+                                    name='password' 
+                                    error={formState.touched.password && formState.errors.password} 
+                                    label='Hasło' 
+                                    type='password' 
+                                    style={Styles.text}
+                                />
                                 <div className={Styles.termsContainer}>
                                     <div className={Styles.terms}>
                                         <Check>
@@ -62,6 +113,9 @@ class SignInForm extends React.Component {
                                         </Check>
                                     </div>
                                 </div>
+                                {
+                                    console.log(formState)
+                                }
                                 <Button type="submit">Zarejestruj się!</Button>
                             </Form>
                         </div>
