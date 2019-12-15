@@ -7,17 +7,10 @@ const getPaths = (pattern) => {
 }
 
 const initConfig = () => {
-    
     let config = {}
-    if(process.env.NODE_ENV === "dev") {
-        config.models = getPaths(paths.devPaths.models);
-        config.routes = getPaths(paths.devPaths.routes);
-        config.accessLists = getPaths(paths.devPaths.accessLists);
-    } else {
-        config.models = getPaths(paths.prodPaths.models);
-        config.routes = getPaths(paths.prodPaths.routes);
-        config.accessLists = getPaths(paths.prodPaths.accessLists);
-    }
+    config.models = getPaths(paths.models);
+    config.routes = getPaths(paths.routes);
+    config.accessLists = getPaths(paths.accessLists);
 
     return config;
 }

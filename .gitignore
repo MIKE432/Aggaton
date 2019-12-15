@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/backend/defaults/local-defaults.js
+/backend/defaults/defaults-local-override.js
 # dependencies
 /node_modules
 /.pnp

@@ -1,18 +1,11 @@
 const
     sequelizeDb = require('../../defaults/defaults').sequelizeDb,
-    sequelizeDbLocal = require('../../defaults/local-defaults').sequelizeDb;
     sequelizeConstructor = require('sequelize'),
     path = require('path'),
     paths = require('../initConfig');
 
 
-var sequelize;
-
-if(sequelizeDbLocal) {
-    sequelize = new sequelizeConstructor(sequelizeDbLocal.databaseName, sequelizeDbLocal.username, sequelizeDbLocal.password, sequelizeDbLocal.options)
-} else {
-    sequelize = new sequelizeConstructor(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);
-}
+const sequelize = new sequelizeConstructor(sequelizeDb.databaseName, sequelizeDb.username, sequelizeDb.password, sequelizeDb.options);;
 
 const db = {};
 
