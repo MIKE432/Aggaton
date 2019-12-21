@@ -2,6 +2,59 @@
 @import '../../core/styles/fonts.scss';
 @import '../../core/styles/media.scss';
 
+.banner {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    width: 100%;
+    min-height: 100vh;
+
+    @include for-phone-only {    
+    }
+
+    @include for-desktop {
+    }
+
+    margin: 0 auto;
+    background-color: $color-app-workspace;
+    background-image: url("./../../assets/lp-banner-1920.webp");
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    color: $color-window-text;
+    @include font-title;
+    font-weight: 600;
+    padding: 0 100px 0 160px;
+    padding-top: 180px;
+    @include for-phone-only {    
+
+        width: 100%;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+.subtitle {
+    color: $color-window-text;
+    @include font-title;
+    font-weight: 100;
+    text-shadow: $color-window 2px 2px 2px;
+    padding: 10px 100px 0 160px;
+    @include for-phone-only {    
+
+        font-size: 16px;
+        font-weight: 300;
+        width: 100%;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
 .buttonsContainer {
     margin: 0 auto;
     display: flex;
