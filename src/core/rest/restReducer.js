@@ -8,5 +8,4 @@ const restReducer = (state = { fetching: false, error: false }, action) => {
         }
 }
 
-
 export default restReducer

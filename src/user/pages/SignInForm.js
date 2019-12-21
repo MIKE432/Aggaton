@@ -113,9 +113,6 @@ class SignInForm extends React.Component {
                                         </Check>
                                     </div>
                                 </div>
-                                {
-                                    console.log(formState)
-                                }
                                 <Button type="submit">Zarejestruj się!</Button>
                             </Form>
                         </div>

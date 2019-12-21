@@ -6,7 +6,8 @@ import Text from '../../core/ctrls/Text';
 import Button from '../../core/ctrls/Button'
 import { loginUser } from '../redux/userActions'
 import * as yup from 'yup';
-
+import ErrorBox from '../../core/ctrls/ErrorBox';
+import Styles from './LogInForm.module.scss'
 
 const emailError = { header: 'Podaj prawidłowy Email -', href: 'asd', hrefText:'chlopie', explaining: 'Potrzebujesz @' }
 const passwordError = { header: 'Podaj swoje hasło -', href: 'asd', hrefText:'chlopie' }
@@ -14,6 +15,10 @@ const passwordError = { header: 'Podaj swoje hasło -', href: 'asd', hrefText:'c
 const logInFormSchema = () => yup.object().shape({
     email: yup.string().email(emailError),
     password: yup.string().required(passwordError)
+})
+
+const mapStateToProps = state => ({
+    loginFailed: state.user.loginFailed
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -32,6 +37,7 @@ class LogInForm extends React.Component {
     }
 
     render() {
+        console.log(this.props.loginFailed)
         return (
             <div className = 'SignInForm'>
                 <Formik
@@ -45,14 +51,21 @@ class LogInForm extends React.Component {
                         (formState) => (
                             <div className="form-container">
                                 <Form className = 'sign-in-form'>
-                                    <Text error={formState.errors.email} label='Imię' name = 'email' label = 'E-mail' />
-                                    <Text error={formState.errors.password} label='Imię' name = 'password' label = 'Hasło' type = 'password'/>
+                                    <Text label='Imię' name = 'email' label = 'E-mail' />
+                                    <Text label='Imię' name = 'password' label = 'Hasło' type = 'password'/>
+                                    {
+                                        this.props.loginFailed && 
+                                        <div className={Styles.errorContainer}>
+                                            <ErrorBox style={Styles.error} visible={true} popup={false} label={emailError.header} explaining={emailError.explaining}>
+                                                    {passwordError.header} <a href={passwordError.href}>{passwordError.hrefText}</a><br /><b>Numido</b>
+                                            </ErrorBox>
+                                        </div>
+                                    }
                                     <Button type="submit">Zaloguj się!</Button>
                                 </Form>
                             </div>
                         )
                     }
-                
                 />
             </div>
         )
@@ -60,4 +73,4 @@ class LogInForm extends React.Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(LogInForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LogInForm)

@@ -1,6 +1,6 @@
 import { call, takeEvery, put } from 'redux-saga/effects'
 import { apiCall } from '../../core/rest/restClient'
-import { LOGIN_USER, SAVE_USER, loginUserSuccess, logOutUserSuccess, LOGOUT_USER, GET_CURRENT_USER, getCurrentUserSuccess } from './userActions'
+import { LOGIN_USER, SAVE_USER, loginUserSuccess, logOutUserSuccess, LOGOUT_USER, GET_CURRENT_USER, getCurrentUserSuccess, isLoginFailed } from './userActions'
 import { safeRequest } from '../../core/rest/restService';
 import { push } from 'connected-react-router';
 
@@ -12,6 +12,7 @@ export function* saveUserSaga(action) {
 
 export function* loginUserSaga(action) {
     const user = yield call(apiCall, '/api/login', 'POST', {}, action.payload);
+    yield put(isLoginFailed(false))
     yield put(loginUserSuccess(user.data));
     yield put(push('/'));
 }
