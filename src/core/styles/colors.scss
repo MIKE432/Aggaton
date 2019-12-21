@@ -22,11 +22,11 @@ $color-desktop: #1e1e1e;
 $color-desktop-text: #c9d4d4;
 $color-desktop-link: #d7ba7d;
 
-$color-app-workspace: white;
-$color-window: white;
-$color-window-text: black;
-$color-backgournd: white;
-$color-dialog: white;
+$color-app-workspace: black;
+$color-window: black;
+$color-window-text: white;
+$color-backgournd: black;
+$color-dialog: black;
 
 $color-hilight: blue;
 $color-hilight-text: white;
@@ -35,7 +35,8 @@ $color-hover: get-color-hoover($color-hilight);
 $color-warning: crimson;
 $color-warning-text: white;
 
-$color-btn-text: #7a5300;
+$color-btn-text: black;
+$color-btn-text2: #7a5300;
 $color-btn-face: #d7ba7d;
 $color-btn-shadow: get-color-3d-shadow( $color-btn-face );
 $color-btn-dkshadow: get-color-3d-dkshadow( $color-btn-face );

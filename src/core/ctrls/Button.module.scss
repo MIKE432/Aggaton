@@ -1,13 +1,15 @@
 @import './_ctrls.scss';
 
 @mixin set-button-style( $bk-color, $text-color ) {
-    @include font-edit;
+    @include font-label-focus;
 
     color: $text-color;
     background-color: $bk-color;
     border: 1px solid get-color-3d-shadow( $bk-color );
     border-radius: 5px;
-    padding: 6px 6px;
+    padding: 6px 56px;
+    text-transform: uppercase;
+
 
     margin-top: 10px;
     margin-bottom: 10px;
@@ -43,9 +45,7 @@
 }
 
 .secondary {
-    @include set-button-style( $color-btn-face, $color-btn-text );
-    background-color: inherit;
-    color: inherit;
+    @include set-button-style( $color-btn-face, $color-btn-text2 );
 }
 
 .disableClass {
@@ -68,16 +68,13 @@
 .lp {
     @include set-button-style( $color-btn-face, $color-btn-text );
     @include font-title;
-    text-transform: uppercase;
-
     border-radius: 10px;
 }
 
 .lps {
-    @include set-button-style( $color-btn-face, $color-btn-text );
+    @include set-button-style( $color-btn-face, $color-btn-face );
     @include font-title;
-    text-transform: uppercase;
-    background-color: inherit;
+    background-color: transparent;
 
     border-radius: 10px;
 }

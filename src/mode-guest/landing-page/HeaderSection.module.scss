@@ -1,0 +1,45 @@
+@import '../../core/styles/colors.scss';
+@import '../../core/styles/fonts.scss';
+
+.header {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    @include font-title;
+
+    font-size: 72px;
+    padding: 10px 20px;
+    height: 120px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+
+
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    transition-timing-function: ease-out;
+
+    .product {
+
+        span {
+
+            font-style: italic;
+            font-weight: 100;
+        }
+    }
+}
+
+.headerSticky {
+    background-color: rgba(0,0,0,.90);
+    height: 48px;
+    font-size: 32px;
+    padding: 5px 10px;
+
+    box-shadow: 0 1px 10px rgba(255,255,255,.5);
+
+}

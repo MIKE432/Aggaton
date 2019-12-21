@@ -6,6 +6,8 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    min-height: 100vh;
+
     @include for-phone-only {    
         width: 90%;
     }
@@ -15,6 +17,5 @@
     }
 
     margin: 0 auto;
-    height: min-content;
     background-color: $color-app-workspace;
 }
